@@ -1,0 +1,110 @@
+q1
+we can see ICMP Echo requests sent, but no answer.
+this is because 10.0.100.200 is a private address and there are no machine with this private address in this LAN
+
+q2
+we see the list of the files : 
+file.1 file.2 
+without .file.3 because the dot means that this is a hidden file
+
+q3
+There are 2 links :
+h1-s1
+h2-s1
+output : 
+h1 h1-eth0:s1-eth1
+h2 h2-eth0:s1-eth2
+s1 lo:  s1-eth1:h1-eth0 s1-eth2:h2-eth0
+c0
+
+q4
+h1 has one interface, which IP address is 10.0.0.1
+
+q5
+the destination address is 10.0.0.2 (h2)
+
+q6
+The interfaces available for capture in h2 are : 
+nflog
+nfqueue
+h2-eth0
+any
+lo
+
+q7
+3, there are LAN
+
+q8
+a. 10.10.14.1
+b. 10.10.24.2
+c. 10.10.34.3
+d. 10.10.14.4
+e. 10.10.24.4
+f.  10.10.34.4
+
+q9
+a. fd24:ec43:12ca:c001:14::1
+b. fd24:ec43:12ca:c001:24::2
+c. fd24:ec43:12ca:c001:34::3
+d. fd24:ec43:12ca:c001:14::4
+e. fd24:ec43:12ca:c001:24::4
+f. fd24:ec43:12ca:c001:34::4
+
+q10
+a. 9a:6a:5b:81:c3:8c
+b. 22:7c:d7:2f:7e:ef
+c. 1a:be:54:2c:6c:5e
+d. 5e:16:ef:93:c6:f2
+e. 0a:90:3a:a7:cf:14. 
+f. d6:b8:66:ad:c7:39
+
+q11
+a.
+PC3 link local
+fe80::1abe:54ff:fe2c:6c5e
+
+b.
+PC4-eth2 link local
+fe80::d6b8:66ff:fead:c739
+
+q12
+We get host unreachable answers after sending ARP who has requests.
+This is because the ARP requests for 10.10.14.4 are not answered by PC4.
+
+q13 
+Link local address of PC1-eth0 : fe80::9a6a:5bff:fe81:c38c
+ 
+// PC1 fe80::26fe:ceff:fe2a:9864
+// PC2 fe80::3219:9fff:fe55:a871
+// PC4 eth2 : fe80::eef8:50ff:feef:a360
+We can see some IPv6 neighbor solicitations at first, that plays the role of ARP : it asks the MAC address of the host pinged.
+Then we receive some Destination Unreachable ICMPv6 packets  from PC1
+
+!!! TODO
+
+q14
+we get "ping: unknown iface PC4-eth2"
+!!! TODO
+
+
+q15
+ip route
+10.0.0.0/8 dev PC1-eth0  proto kernel  scope link  src 10.10.14.1 
+ip -6 route
+fe80::/64 dev PC1-eth0  proto kernel  metric 256 
+
+For ipv4, all the destinations addresses in the range 10.0.0.0/8 are sent to the interface PC1-eth0
+For ipv6, all the destinations addresses in the range fe80::/64 are sent to the interface PC1-eth0
+
+q16
+ip route show
+10.0.0.0/8 dev PC1-eth0  proto kernel  scope link  src 10.10.14.1 
+10.10.14.0/24 dev PC1-eth0  proto kernel  scope link  src 10.10.14.1 
+ip -6 route show
+fd24:ec43:12ca:c001:14::/80 dev PC1-eth0  proto kernel  metric 256 
+fe80::/64 dev PC1-eth0  proto kernel  metric 256 
+
+The new modifications are used for routing traffic from the host to the subnet.
+
+
+
