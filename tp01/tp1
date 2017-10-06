@@ -51,60 +51,104 @@ e. fd24:ec43:12ca:c001:24::4
 f. fd24:ec43:12ca:c001:34::4
 
 q10
-a. 9a:6a:5b:81:c3:8c
-b. 22:7c:d7:2f:7e:ef
-c. 1a:be:54:2c:6c:5e
-d. 5e:16:ef:93:c6:f2
-e. 0a:90:3a:a7:cf:14. 
-f. d6:b8:66:ad:c7:39
+a. ba:11:a2:b3:db:2f
+b. 1a:ed:f2:f8:93:e3
+c. 52:a6:e2:57:e5:63
+d. 8a:9a:76:8a:5f:d3
+e. de:e8:25:9a:f3:6a
+f. 1e:46:36:c3:4f:73
 
 q11
 a.
 PC3 link local
-fe80::1abe:54ff:fe2c:6c5e
+fe80::50a6:e2ff:fe57:e563
 
 b.
 PC4-eth2 link local
-fe80::d6b8:66ff:fead:c739
+fe80::1c46:36ff:fec3:4f73
 
 q12
-We get host unreachable answers after sending ARP who has requests.
-This is because the ARP requests for 10.10.14.4 are not answered by PC4.
+We get host unreachable answers after sending ARP "who has" requests.
+This is because the ARP requests for 10.10.14.4 are not answered by PC4, because it does not have this IP address yet.
 
 q13 
-Link local address of PC1-eth0 : fe80::9a6a:5bff:fe81:c38c
- 
-// PC1 fe80::26fe:ceff:fe2a:9864
-// PC2 fe80::3219:9fff:fe55:a871
-// PC4 eth2 : fe80::eef8:50ff:feef:a360
-We can see some IPv6 neighbor solicitations at first, that plays the role of ARP : it asks the MAC address of the host pinged.
-Then we receive some Destination Unreachable ICMPv6 packets  from PC1
-
-!!! TODO
+We only see ICMPv6 ping request and replies, and the ping works.
+This is the case because we are doing a ping from PC1-eth0 to PC1-eth0.
 
 q14
-we get "ping: unknown iface PC4-eth2"
-!!! TODO
-
+ping: unknown iface PC4-eth2
+This is because PC4-eth2 is not an interface of PC1, therefore it doesnt know about it.
 
 q15
 ip route
-10.0.0.0/8 dev PC1-eth0  proto kernel  scope link  src 10.10.14.1 
+10.0.0.0/8 dev PC1-eth0  proto kernel  scope link  src 10.0.0.1 
+For ipv4, all the destinations addresses that start with 10. are sent to the interface PC1-eth0 (in PC1).
+
 ip -6 route
 fe80::/64 dev PC1-eth0  proto kernel  metric 256 
-
-For ipv4, all the destinations addresses in the range 10.0.0.0/8 are sent to the interface PC1-eth0
 For ipv6, all the destinations addresses in the range fe80::/64 are sent to the interface PC1-eth0
 
 q16
 ip route show
-10.0.0.0/8 dev PC1-eth0  proto kernel  scope link  src 10.10.14.1 
 10.10.14.0/24 dev PC1-eth0  proto kernel  scope link  src 10.10.14.1 
 ip -6 route show
-fd24:ec43:12ca:c001:14::/80 dev PC1-eth0  proto kernel  metric 256 
-fe80::/64 dev PC1-eth0  proto kernel  metric 256 
+fd24:ec43:12ca:c001:14::/80 dev PC1-eth0  proto kernel  metric 256
+For each routing entry, it changed the route's target default subnet to the one we specified.
+This is used to know to which interface send packets from the host to the correct subnet.
 
-The new modifications are used for routing traffic from the host to the subnet.
+q17
+host portion : 10.10.14.1
+subnet : /24 : ips form 10.10.14.0 to 10.10.14.255
+Knowing this allows to know what are the ip addresses reachable by PC1-eth0.
+This way, PC1 can route any packets with ip destination in 10.10.14.0/24.
 
+q18
+Destination Host Unreachable
+We get this because we still havent assigned 10.10.14.4 to PC4 eth0.
+We see that ARP packets are received by PC4-eth0, but PC4 does not reply since it doesnot have this ip address.
 
+q19
+It does not work, because there is no default gateway configured in PC1, and therefore subnets 10.10.24.0/24 and 10.10.34.0/24 are unreachable.
+
+q20
+On PC3 :
+ip route add default via 10.10.34.4
+ip -6 route add default via fd24:ec43:12ca:c001:34::4
+PC3 received the ICMP ping packets, but couldnt reply since it had no default gateway to send to other LAN.
+
+q21
+with 10 packets mean :
+PC2 -> PC1 RTT = 4.881ms
+PC3 -> PC2 RTT = 5.636ms
+PC1 -> PC3 RTT = 5.722ms
+The round trip time are quite similar, probably because the paths taken are similar and no other traffic is present.
+
+q22
+From PC3 perspective,
+The ping requests source has been changed from 10.10.24.2 to 10.10.34.4, therefore it seems like the ping comes from PC4-eth2.
+Similarly, The ping response destination has been changed from 10.10.24.2 to 10.10.34.4 (but this is implied from the first change).
+
+q23
+In this case :
+-j MASQUERADE can be used to change the source to a different one : make traffic (PC3 to PC1) look like (PC2 to PC1) (same for  (PC3 to PC2) look like (PC1 to PC2))
+-j DNAT can be used to change the destination to a different one : route traffic (PC2 to PC1) to PC3 (same for  (PC1 to PC2) to PC3)
+
+q24
+iptables -t nat -A PREROUTING -p icmp -s 10.10.24.2 -d 10.10.14.1 -j DNAT --to-destination 10.10.34.3
+
+q25
+changing destination :
+iptables -t nat -A PREROUTING -p icmp -s 10.10.34.3 -d 10.10.24.2 -j DNAT --to-destination 10.10.14.1
+changing source :
+iptables -t nat -A POSTROUTING -p icmp -s 10.10.24.2 -d 10.10.14.1 -j SNAT --to 10.10.34.3
+
+q26
+iptables -t nat -A POSTROUTING -s 10.10.34.3 -d 10.10.14.1 -j SNAT --to 10.10.24.2
+
+q27
+No because we need to change the IP source address from PC3 to PC2, wich is not possible by simply tapering iproutes.
+
+q28
+There may be a noticeable delay because of the longer route taken from PC2 to PC1, this is possible in the lab because the topology is known and the routes unique.
+If the RTT between all neighbor IP nodes are equal (let it be t), then in the lab the normal total RTT between PC2 and PC1 should be 2*t, but when performing the MITM attack, it is 3*t, that is an increase of 50%.
 
