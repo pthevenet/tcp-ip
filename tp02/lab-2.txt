@@ -1,0 +1,41 @@
+[Q1]
+h3 has an incorrect subnet mask of /31
+We found out by running `ip addr` on h3's terminal.
+
+[Q2]
+This error corresponds to the following line:
+h3 = net.addHost( 'h3', ip = '10.0.0.3/31' )
+
+[Q3]
+We ran the following command:
+ifconfig h3-eth0 netmask 255.255.255.0
+The given netmask here represents a 24-bit mask.
+
+[Q4]
+Another way of doing this would be to execute `ping 10.0.0.2` from h1's terminal.
+
+[Q5]
+There is no difference between the traffic captured by the four hosts.
+
+[Q6]
+This is because s12 and s34 are level 1 hubs and therefore they forward packets to every link except the incoming link.
+
+[Q7]
+We would run the following commands on mininet:
+py h3.setIP('10.0.0.3/24') // Correct the subnet for h3
+sh ovs-ofctl add-flow s34 action=normal
+
+[Q8]
+On h1 and h2 we see all ICMP requests and replies, whereas on h3 and h4 we only see one request.
+
+[Q9]
+The reason behind this is that s34 is now a bridge, therefore it forwards the first request to everyone since it doesn't know yet the MAC address of h2. Once it receives h2's reply (which happens because s12 is a hub), it will store the MAC address of h2 in its ARP table and stop forwarding packets destined to h2 to h3 and h4.
+
+[Q10]
+There is no ICMP traffic on any of the four hosts. This is because h4 is in a different subnet (LAN) than h1, and h1 doesn't have a default gateway, therefore it just drops the ICMP packets because it doesn't know where to send them to.
+
+[Q11]
+h2 receives all the traffic between h1 and h3. This is because s12 is a layer 1 hub and forwards traffic to all links (except source link).
+
+[Q12]
+The packets observed at h1 and h3 are exactly the same in terms of source/destination MAC addresses. This is the expected behaviour.
