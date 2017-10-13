@@ -1,0 +1,18 @@
+
+	main host
+python topo1.py
+sh ovs-ofctl add-flow s12 action=flood
+sh ovs-ofctl add-flow s34 action=flood
+
+	h3
+ifconfig h3-eth0 netmask 255.255.255.0
+
+	main host
+h1 ping h2
+
+	all hi
+sudo wireshark &
+
+	main
+sh ovs-ofctl add-flow s34 action=normal
+
