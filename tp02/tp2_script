@@ -16,3 +16,20 @@ sudo wireshark &
 	main
 sh ovs-ofctl add-flow s34 action=normal
 
+2.3
+
+	main
+exit
+
+
+	main
+python topo2.py
+
+	r1
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+	h2
+ip route del default via 10.0.0.101 dev h2-eth0
+ip route add default via 10.0.0.100 dev h2-eth0
+
+

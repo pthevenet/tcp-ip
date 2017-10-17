@@ -39,3 +39,54 @@ h2 receives all the traffic between h1 and h3. This is because s12 is a layer 1 
 
 [Q12]
 The packets observed at h1 and h3 are exactly the same in terms of source/destination MAC addresses. This is the expected behaviour.
+
+[Q13]
+The dropped packet rate percentage is 33% (4/12).
+This corresponds to the fact that the LAN r1 h1 s12 and h2 and the LAN r1 h3 are not linked yet.
+
+[Q14]
+h3 cannot reach h1 nor h2, and h1 and h2 cannot reach h3.
+
+[Q15]
+ The subnet mask is 255.255.255.0 (/24 prefix).
+
+[Q16]
+The interfaces are r1-eth0 and r1-eth1.
+r1-eth0 is 10.0.0.100 and r1-eth1 is 10.0.1.100.
+
+[Q17]
+This line disable routing by r1 : r1.cmd('echo 0 > /proc/sys/net/ipv4/ip_forward')
+This line misconfigure the default gateway of h2 : 	h2.cmd('ip route add default via 10.0.0.101') (it should be 10.0.0.100)
+
+[Q18]
+Simply use this command :
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+[Q19]
+16%
+Now only h2 and h3 cannot communicate
+
+[Q20]
+"ip route del default via 10.0.0.101 dev h2-eth0" to delete the bad gateway and
+"ip route add default via 10.0.0.100 dev h2-eth0" to add the correct gateway.
+
+[Q21]
+0% dropped, we corrected the misconfigurations therefore the network is well configured now.
+
+[Q22]
+The IP TTL is decremented by 1.
+We can see that the source and destination mac addresses are changed.
+The source MAC was the MAC of h1 and is replaced by the MAC address of r1-eth1
+and the destination is changed from the MAC of r1-eth0 to the MAC of h3.
+(this is for the request, for the reply it is the reversed process)
+
+[Q23]
+The TTL is decremented because this is the protocol of IP, it enforces that no loops are created.
+The MAC addresses are changed because the ethernet frames are used to communicate inside a LAN, and not betwee LANS.
+So firstly the MAC source is h1's and destination is the address of the gateway interface, therefore r1-eth0.
+When r1 receives the frame, it determine the route and sends it to r1-eth1 by placing source r1-eth1 and destination h3 via its ARP table.
+
+
+
+
+
