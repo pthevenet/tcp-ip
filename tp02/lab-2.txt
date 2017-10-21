@@ -86,7 +86,129 @@ The MAC addresses are changed because the ethernet frames are used to communicat
 So firstly the MAC source is h1's and destination is the address of the gateway interface, therefore r1-eth0.
 When r1 receives the frame, it determine the route and sends it to r1-eth1 by placing source r1-eth1 and destination h3 via its ARP table.
 
+[Q24]
+Set the default gateway of r1:
+ip route add default via 10.0.1.3 dev r1-eth1
+Remove the default gateway of h3:
+ip route del default via 10.0.1.100 dev h3-eth0
+Enable IPv4 forwarding on h3:
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+[Q25]
+The ping requests arrive to h3 but h3 doesn't respond. Since the ping requests come from a different LAN than that of h3, h3 needs a default gateway to send responses, which it doesn't have anymore.
+
+[Q26]
+To add the default gateway back to h3:
+ip route add default via 10.0.1.100 dev h3-eth0
+
+[Q27]
+In this case, we can use NAT on h3. By doing that, h1 and h2 can share the one public IP address that we have. With NAT, h3 uses different port numbers on its public interface to distinguish packet flows coming from/to h1 from those coming from/to h2.
+
+[Q28]
+The interface used to access the internet has IP address 10.0.2.15.
+It's a private address given by the VM that uses a NAT to use a single interface on the physical device.
+
+[Q29]
+Physical IP address: 128.179.195.189
+Subnet mask: 255.255.248.0
+Default gateway: 128.179.192.1
+The range of IP addresses that we can use is [128.179.192.0-128.179.199.255] except for reserved IP addresses, for example the network identifier and broadcast address.
+
+[Q30]
+We can send ARP "who has" requests to all IP addresses in the range [128.179.192.0-128.179.199.255] and wait for responses, and finally take all IP addresses from which no response was received.
+It's not completely safe to take any of these addresses because first packets could be lost in the network, and second an IP address can be part of the DHCP range and the DHCP server might later allocate that address to a machine on the network.
+
+[Q31]
+We can use these private addresses on h3's eth1 to do NAT. This would work because the internal NAT will again use different port numbers to manage its connections to/from its internal network, just like the external NAT, and it should work exactly the same way.
+
+[Q32]
+In the first case we send DNS requests without any answer. The same thing happens in the second case (but with ICMP requests this time).
+This is because requests are sent using the private IP address of h1/h2, and h3 is not running NAT yet, therefore the response packets get lost because their destination address is not a valid public IP address.
+
+[Q33]
+iptables -t nat -A POSTROUTING -o h3-eth1 -j MASQUERADE
+
+[Q34]
+The source IP address of the requests and the destination IP address of the replies are translated to h3's external address.
+
+[Q35]
+There is no traffic on h3-eth0 because h3 communicates to the external world via eth-1. The IP source address is unchanged as h3 is the machine running NAT. The port numbers (source and destination) are different.
+
+[Q36]
+The field is the destination port address in the reply.
+
+[Q37]
+The ICMP ID field is different in the requests.
+
+[Q38]
+To identify the source, we use this ICMP ID field, this is needed because there is no port number.
+
+[Q39]
+On our laptop:
+ip addr add 172.16.0.2/24 dev enp0s25
+
+[Q40]
+On the lab computer:
+ip addr add 172.16.0.1/24 dev eth0
+
+[Q41]
+On the lab computer:
+echo 1 > /proc/sys/net/ipv4/ip_forward # to enable forwarding
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE # to perform the NAT
+
+[Q42]
+On our laptop:
+sudo ip route add default via 10.0.0.1 # add the default gateway
+
+[Q43]
+We added the line "nameserver 8.8.8.8" to the file /etc/resolv.conf
+
+[Q44]
 
 
+[Q45]
+First, we tried to ping facebook.com, but got a "Unkown host" error.
+Then we tried to ping 8.8.8.8 to see if the problem is related to DNS, but we got a "Network is unreachable" error. This probably means that it's not a DNS problem.
+We also tried to ping h2 to see if at least we can reach hosts on the local network, but again we got an error. Therefore, h1 is not correctly connected to the LAN.
+To check if h1's network configuration is correct, we ran "ip addr" on h1 and discovered that its IP address is 3.3.3.3 which is not part of the subnet h1 belongs to.
 
+To fix the configuration, we ran the following commands on h1:
+ip addr del 3.3.3.3 dev h1-eth0 # Remove the incorrect address
+ip addr add 10.0.0.1/24 dev h1-eth0 # Add the correct address
 
+Now we try again to ping h2, and it works which means that we are correctly connected to the subnet.
+Yet, when we try to ping 8.8.8.8 now, we still get a "Network is unreachable" error. Maybe we have a incorrectly configured default gateway, so we ran "ip route" and discovered that there is no default gateway on h1.
+
+To fix this we ran the following command on h1:
+ip route add default via 10.0.0.100 # Add router r1 as default gateway for h1
+
+Now we try to access facebook with firefox on h1 and it works.
+
+[Q46]
+First, we tried to ping google.com, but got a "Unknown host" error.
+But this time, when we ping 8.8.8.8, it works. Therefore, it's probably a DNS problem.
+
+So we checked the DNS servers configured on h2 with the following command:
+cat /etc/resolv.conf
+
+We found only one entry with address 2.3.2.3
+We replaced this address with google's DNS server at 8.8.8.8
+Now we tried to connect to facebook on h2 and it works.
+
+[Q47]
+We tried to connect to facebook.com on h1, but got a warning from firefox that says "Connection untrusted". Therefore we suppose that r1 is redirecting traffic that is supposed to go to facebook somewhere else.
+Indeed, when we run wireshark on both interfaces of r1, we see that the destination address of the ping requests sent to facebook is being changed to an IP address at EPFL.
+So, we checked on r1 the iptables rules only to confirm our hypothesis, and we did find a number of NAT rules to redirect traffic to an EPFL host at 128.178.50.12.
+
+Since r1 is not supposed to do any NATing, we flush r1's iptables with the following command:
+iptables -t nat -F
+
+Now we tried to ping facebook but got a "Destination host unreachable" error. We still have to delete the entries in r1's routing table that do the malicious routing.
+For this we checked the routing table on r1 with "ip route" and found two entries with IP addresses of facebook, so we deleted them with the following commands:
+ip route del 31.13.24.0/21 dev r1-eth0 scope link
+ip route del 31.13.64.0/18 dev r1-eth0 scope link
+
+Now we can successfully access facebook from h1.
+
+[Q48]
+When we try to access facebook from h2, it works without problems. This is because the problem was on r1 and we already fixed it.
