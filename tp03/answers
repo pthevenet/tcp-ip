@@ -1,0 +1,26 @@
+[Q3]
+Both codes uses TCP sockects and IPv4 (AF_INET, SOCK_STREAM are passed to the socket function)
+
+[Q4]
+This is used to see if a process is using port 5002, and its state.
+tcp        0      0 127.0.0.1:5002          0.0.0.0:*               LISTEN
+Therefore a process is using a TCP socket at port 5002 and is currently listening. Indeed this is our code C running.
+
+[Q5]
+tcp        0      0 127.0.0.1:5002          0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.1:43742         127.0.0.1:5002          ESTABLISHED
+tcp        0      0 127.0.0.1:5002          127.0.0.1:43742         ESTABLISHED
+
+
+Yes it is different : we can see two new lines, one for the server socket, one for the client socket. These corresponds to the new established connection.
+Line 1 is the listening socket of the server.
+Line 2 is the socket of the client D, connected to the socket of the server C.
+Line 3 is the socket of the server C, connected to the socket of the client D.
+
+[Q6]
+The server displayed three lines.
+We see in the code of C that we can specify how many bytes to get from the socket buffer each time we read. This is due to TCP being stream oriented.
+For this we use the function socket.recv(x) where x is the number of bytes we want to read.
+
+[Q7]
+It does not execute. Because the code blocks on connection.recv, waiting for data from server, or a connection loss.
