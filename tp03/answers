@@ -24,3 +24,53 @@ For this we use the function socket.recv(x) where x is the number of bytes we wa
 
 [Q7]
 It does not execute. Because the code blocks on connection.recv, waiting for data from server, or a connection loss.
+
+[Q8]
+No, the listening socket is only used to establish connections, and netstat tells us this is not the same socket as established connections.
+The listening socket is not bound to any remote/ip port, and therefore no receive and send are explicitly performed on the listening socket.
+
+[Q9]
+Yes it does execute, this is because this time the data received is Null (in C's code), because the connection has been stopped, as it is specified by TCP's protocol (FIN ACK FIN ACK).
+
+[Q10]
+We received 8 messages (data 0 to 7), with d=0 or d=1.
+
+[Q11]
+From the PDU :
+With d=0 we get 2 TCP segments with payload length > 0 (length 18 bytes and the second 126).
+With d=1 we get 8 TCP segments with payload length > 0 (all of length 18 bytes)
+
+[Q12]
+With d=0, the server can send all responses at the same time, therefore TCP can concatenate the data sent into 1 or more packets (2 in our case).
+On the other hand, with d=1, the PDU sends a response every 1s, and the TCP in the server is (probably) configured not to wait to concatenate packets if the data is slow to be sent to the socket, therefore we see 1 packet for each response, wich looks like a message oriented connection, but is not.
+
+[Q13]
+The client can wait for the FIN segment from the server to understand that it received all messages (since TCP ensures that no packet is dropped).
+If the server fails, there is no way to be sure (no FIN segment).
+
+[Q14]
+We get 5 TCP segments with payload length > 0
+
+[Q15]
+The first 15 lines :
+ACT I
+
+SCENE I. Elsinore. A platform before the castle.
+
+FRANCISCO at his post. Enter to him BERNARDO
+BERNARDO
+Who's there?
+FRANCISCO
+Nay, answer me: stand, and unfold yourself.
+BERNARDO
+Long live the king!
+FRANCISCO
+Bernardo?
+BERNARDO
+
+[Q16]
+1. With recv(5000) we get 6 recv calls needed. With recv(18), 913 calls.
+2. Clearly no, the recv function reads in the socket buffer, which available data length has little correspondence with the actual received segments (e.g. the length of the segments are not predictable, but we explicitly ask for a number of bytes in recv call).
+3. According to 1. the bufsize argument of the recv() method affects the number of calls, otherwise the delay between successive received segments (counting reordering) can affect the number of calls, because recv(bufsize) reads at most bufsize, but can read less if the data takes long to come.
+
+[Q17]
