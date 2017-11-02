@@ -2,6 +2,7 @@ import sys
 import socket
 import re
 import select
+import datetime
 
 
 HOST = "lab3.iew.epfl.ch"
@@ -16,32 +17,26 @@ msg = cmd.encode()
 response = re.compile("^OFFSET=\d+$")
 
 
-def run(sock):
-    sock.setblocking(0)
-    received = False
-    while not received:
-        # send and timemout
-        sock.sendto(msg, (HOST, PORT))
-        ready = select.select([sock], [], [], 1) # reading, writing, exception, timeout
-        if ready[0]:
-            data = sock.recv(65507).decode()
-            if re.match(response, data):
-                # got valid response
-                received = True # stop looping
-                print("Received : " + data)
+sock6 = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+sock6.setblocking(0)
+sock4 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock4.setblocking(0)
+received = False
 
+while not received:
+    sock6.sendto(msg, (HOST, PORT))
+    sock4.sendto(msg, (HOST, PORT))
+    ready = select.select([sock4, sock6], [], [], 1)[0] # reading, writing, exception
+    if ready:
+        response = ready[0].recv(65507).decode()
+        print(datetime.datetime.now())
+        print(response)
+        received = True
 
+        if (ready[0] == sock6):
+            print("Received using IPv6")
+        else:
+            print("Received using IPv4")
 
-try:
-    # IPv6 / UDP
-    sock6 = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
-    run(sock6)
-except:
-    print()
-
-try:
-    # IPv4 / UDP
-    sock4 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    run(sock4)
-except:
-    print()
+    else:
+        print("timeout")
