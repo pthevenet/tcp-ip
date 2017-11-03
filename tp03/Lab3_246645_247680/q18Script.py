@@ -35,12 +35,12 @@ for i in range(60):
             print(datetime.datetime.now())
             print(response)
             received = True
-    
+
             if (ready[0] == sock6):
                 print("Received using IPv6")
             else:
                 print("Received using IPv4")
-    
+
         else:
             print("timeout")
 
