@@ -73,4 +73,110 @@ BERNARDO
 2. Clearly no, the recv function reads in the socket buffer, which available data length has little correspondence with the actual received segments (e.g. the length of the segments are not predictable, but we explicitly ask for a number of bytes in recv call).
 3. According to 1. the bufsize argument of the recv() method affects the number of calls, otherwise the delay between successive received segments (counting reordering) can affect the number of calls, because recv(bufsize) reads at most bufsize, but can read less if the data takes long to come.
 
-[Q17]
+[Q17.a]
+2017-11-02 10:42:17.852113
+[Q17.b]
+IPv4
+
+[Q18.a]
+avg number of packets before ack : 4.5166
+[Q18.b]
+probability of loss : 0.7786
+
+[Q19]
+NOT PARSED example :
+swcmTVHAMLET
+swcmTV
+swcmTV    Here's the commission: read it at more leisure.
+swcmTV    But wilt thou hear me how I did proceed?
+swcmTV
+swcmTVHORATIO
+swcmTV
+swcmTV    I beseech you.
+swcmTV
+swcmTVHAMLET
+swcmTV    Being thus be-netted round with villanies,--
+swcmTV    Ere I could make a prologue to my brains,
+swcmTV    They had begun the play--I sat me down,
+swcmTV    Devised a new commission, wrote it fair:
+swcmTV    I once did hold it, as our statists do,
+swcmTV    A baseness to write fair and labour'd much
+
+PARSED example :
+id : swcmTV
+message :
+    I had my father's signet in my purse,
+id : swcmTV
+message :
+    Which was the model of that Danish seal;
+id : swcmTV
+message :
+    Folded the writ up in form of the other,
+id : swcmTV
+message :
+    Subscribed it, gave't the impression, placed it safely,
+id : swcmTV
+message :
+    The changeling never known. Now, the next day
+id : swcmTV
+message :
+    Was our sea-fight; and what to this was sequent
+id : swcmTV
+message :
+    Thou know'st already.
+id : swcmTV
+message :
+
+id : swcmTV
+message :
+HORATIO
+id : swcmTV
+message :
+
+id : swcmTV
+message :
+    So Guildenstern and Rosencrantz go to't.
+id : swcmTV
+message :
+
+[Q20]
+Yes : socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP
+IP_ADD_MEMBERSHIP to join a multicast group, with the value containing the group 224.1.1.1 and INADDR_ANY to bind to any interfaces.
+
+[Q21]
+Yes, we need to set the IP_MULTICAST_TTL to more than one (we set it to 127) so that our message can be forwarded past the first multicast router (default IP_MULTICAST_TTL is 1).
+ttl = struct.pack('b', 127)
+sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, ttl)
+
+[Q22]
+246645 last 2 messages from server :
+
+READING FROM server
+	@246645: So far I've received 277 bytes from you. Still 23 to go!
+
+READING FROM server
+	@246645: Your task is now completed. Congrats! Remember to upload your source code on Moodle! By the way, What kind of eggs does a wicked chicken lay? Deviled eggs.
+
+247680 last 2 messages from server :
+
+READING FROM server
+	@247680: So far I've received 297 bytes from you. Still 3 to go!
+
+READING FROM server
+	@247680: Your task is now completed. Congrats! Remember to upload your source code on Moodle! By the way, How can you get four suits for a dollar? Buy a deck of cards.
+
+[Q23]
+We received 4 TCP packets, each containing one or more Websocket packets. In total we received 8 PMUs, and 8 Websocket packets.
+Yes the number is different.
+
+[Q24]
+We don't have an on_message event in our code. (Why would we ? Our code works.)
+But recv is called 8 times.
+We can conclude that using websocket is a way to use message oriented protocol while using TCP, therefore it is easier to use websocket than 'raw' tcp when dealing with messages and not flows of data.
+
+[Q25]
+Using wireshark, we see one websocket packet, and 4 TCP (underlying) packets, coming from the server carrying text.
+Again : We don't have an on_message event in our code. (Why would we ? Our code works.)
+We get using websocket only one call to recv.
+Here we only get one websocket packet, while we got many tcp packets in 2.
+As we said in Q24, this is because websocket provides a message based protocol, and not a flow based protocol as in TCP.

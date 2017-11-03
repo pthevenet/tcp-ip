@@ -25,11 +25,33 @@ exit
 	main
 python topo2.py
 
+2.4
+
 	r1
+ip route add default via 10.0.1.3 dev r1-eth1
+
+	h3
+ip route del default via 10.0.1.100 dev h3-eth0
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
-	h2
-ip route del default via 10.0.0.101 dev h2-eth0
-ip route add default via 10.0.0.100 dev h2-eth0
+	h3
+ip route add default via 10.0.1.100 dev h3-eth0
+
+3.
+
+3.1.1	main
+exit
+mn -c
 
 
+
+topo2_internet -0------
+	main
+sh ovs-vsctl add-port s3 eth0
+	
+	h3
+dhclient h3-eth1
+
+
+	h3
+iptables -t nat -A POSTROUTING -o h3-eth1 -j MASQUERADE

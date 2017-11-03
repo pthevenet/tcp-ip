@@ -1,0 +1,20 @@
+
+WARNING USE PYTHON 3
+
+2.
+Part2_246645_247680 usage :
+python Part2_246645_247680.py <command>
+where command is the command to send
+
+3.
+Part3_246645_24780 usage :
+python Part3_246645_24780
+
+4.1.
+Part4_Receiver_246645_247680 usage :
+python Part4_Receiver_246645_247680.py
+
+4.2.
+Part4_Sender_246645_247680 usage :
+python Part4_Sender_246645_247680 <sciper>
+where <sciper> is the ID, camipro.

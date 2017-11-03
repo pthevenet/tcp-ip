@@ -10,7 +10,7 @@ sock.connect((HOST,PORT))
 
 args = sys.argv[1:]
 if (len(args) < 1):
-    print("USAGE : python pdc.py command")
+    print("USAGE : python Part2_246645_247680.py command")
     sys.exit()
 
 
