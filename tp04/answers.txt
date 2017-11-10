@@ -1,0 +1,6 @@
+[Q1]
+We run pingall and only 2 out of the 42 connections (5%) seem to be functional.
+These two connections are the ones between h1 and r1. The connections between h2 and r2 are not functional because we are pinging with IPv4 and r2 is not configured with IPv4 (otherwise it works with IPv6). Furthermore, routers don't have enough routing entries in their routing tables.
+
+[Q2]
+
