@@ -3,4 +3,13 @@ We run pingall and only 2 out of the 42 connections (5%) seem to be functional.
 These two connections are the ones between h1 and r1. The connections between h2 and r2 are not functional because we are pinging with IPv4 and r2 is not configured with IPv4 (otherwise it works with IPv6). Furthermore, routers don't have enough routing entries in their routing tables.
 
 [Q2]
+At r1, we can find the subnets :
+10.10.11.0/24 via r1-eth3
+10.10.12.0/24 via r1-eth1
+10.10.14.0/24 via r1-eth2
+126.0.0.0/8 via lo
+2001:1:0:11::/64 via r1-eth3
+2001:1:0:12::/64 via r1-eth1
+2001:1:0:14::/64 via r1-eth2
+
 
