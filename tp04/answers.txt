@@ -4,12 +4,161 @@ These two connections are the ones between h1 and r1. The connections between h2
 
 [Q2]
 At r1, we can find the subnets :
+IPv4 : 
 10.10.11.0/24 via r1-eth3
 10.10.12.0/24 via r1-eth1
 10.10.14.0/24 via r1-eth2
 126.0.0.0/8 via lo
+IPv6 :
 2001:1:0:11::/64 via r1-eth3
 2001:1:0:12::/64 via r1-eth1
 2001:1:0:14::/64 via r1-eth2
+
+
+[Q3]
+By looking at the destination  address of the OSPF packets, we can see that OSPF uses multicast to distribute routing information (sending to the multicast address 224.0.0.5).
+Confirmed by this line in the log file :
+2017/11/15 11:20:38 OSPF: Hello sent to [224.0.0.5] via [r1-eth2:10.10.14.1].
+
+[Q4]
+The routing table :
+2017/11/15 11:34:57 OSPF: ========== OSPF routing table ==========
+2017/11/15 11:34:57 OSPF: N 10.10.12.0/24	0.0.0.0	intra-area	10
+2017/11/15 11:34:57 OSPF:   -> 0.0.0.0
+2017/11/15 11:34:57 OSPF: N 10.10.23.0/24	0.0.0.0	intra-area	20
+2017/11/15 11:34:57 OSPF:   -> 10.10.12.2
+2017/11/15 11:34:57 OSPF: N 10.10.25.0/24	0.0.0.0	intra-area	20
+2017/11/15 11:34:57 OSPF:   -> 10.10.12.2
+2017/11/15 11:34:57 OSPF: N 10.10.35.0/24	0.0.0.0	intra-area	30
+2017/11/15 11:34:57 OSPF:   -> 10.10.12.2
+2017/11/15 11:34:57 OSPF: ========================================
+
+We can see that r1 identifies r2 (looking at the next hops) by its ip address on the same subnet as r1 : 10.10.12.2
+
+[Q5]
+    Neighbor ID Pri State           Dead Time Address         Interface            RXmtL RqstL DBsmL
+10.10.14.1        1 Full/Backup       32.119s 10.10.12.1      r2-eth1:10.10.12.2       0     0     0
+10.10.35.3        1 Full/DR           35.366s 10.10.23.3      r2-eth2:10.10.23.2       0     0     0
+10.10.45.5        1 Full/Backup       36.081s 10.10.25.5      r2-eth3:10.10.25.2       0     0     0
+
+We can see that r2 has 3 neighbors , with ids 10.10.14.1, 10.10.35.3 and 10.10.45.5.
+The designated router is 10.10.35.3, the backup designated routers are 10.10.14.1 and 10.10.45.5 (looking at the State column).
+
+[Q6]
+The Dead Time value represents the waiting time until the router will declare the neighbor down if no hello packet is received from this neighbor.
+The Dead Time has to be more than the hello timer because otherwise the neighbor will always seem down, to care about dropped hello packets, it has to be large enough (for example 4 times the hello timer in this case).
+From multiple observations, it seems that the Dead Timer is set to 40s and the Hello Timer to 10 s (Dead timer updates from 30s to 40s).
+
+[Q7]
+Running the command "show ip ospf database network self-originated" we can see that 	r2 advertises 	for subnets 10.10.12.2/24 and 10.10.25.2/24.
+It does not advertises for 10.10.35.3/24 because it is not the designated router for it (it is 10.10.35.3).
+
+       OSPF Router with ID (10.10.25.2)
+
+                Net Link States (Area 0.0.0.0)
+
+  LS age: 493
+  Options: 0x2  : *|-|-|-|-|-|E|*
+  LS Flags: 0x3  
+  LS Type: network-LSA
+  Link State ID: 10.10.12.2 (address of Designated Router)
+  Advertising Router: 10.10.25.2
+  LS Seq Number: 80000002
+  Checksum: 0xedc7
+  Length: 32
+  Network Mask: /24
+        Attached Router: 10.10.14.1
+        Attached Router: 10.10.25.2
+
+  LS age: 523
+  Options: 0x2  : *|-|-|-|-|-|E|*
+  LS Flags: 0x3  
+  LS Type: network-LSA
+  Link State ID: 10.10.25.2 (address of Designated Router)
+  Advertising Router: 10.10.25.2
+  LS Seq Number: 80000002
+  Checksum: 0xfa8a
+  Length: 32
+  Network Mask: /24
+        Attached Router: 10.10.25.2
+        Attached Router: 10.10.45.5
+
+[Q8]
+Using the commands on r2
+show ip ospf database router adv-router 10.10.14.1
+show ip ospf database router adv-router 10.10.11.1
+show ip ospf database router adv-router 10.10.12.1
+
+We see that r1 advertises prefixes 10.10.14.0/24 and 10.10.11.0/24 ( which are stub networks (r4 does not have ospf enabled)) and a transit network 10.10.12.2/24
+
+We see the advertised router LSA from r1 :
+
+       OSPF Router with ID (10.10.25.2)
+
+                Router Link States (Area 0.0.0.0)
+
+  LS age: 809
+  Options: 0x2  : *|-|-|-|-|-|E|*
+  LS Flags: 0x6  
+  Flags: 0x0
+  LS Type: router-LSA
+  Link State ID: 10.10.14.1 
+  Advertising Router: 10.10.14.1
+  LS Seq Number: 80000009
+  Checksum: 0xbf83
+  Length: 60
+   Number of Links: 3
+
+    Link connected to: a Transit Network
+     (Link ID) Designated Router address: 10.10.12.2
+     (Link Data) Router Interface address: 10.10.12.1
+      Number of TOS metrics: 0
+       TOS 0 Metric: 10
+
+    Link connected to: Stub Network
+     (Link ID) Net: 10.10.14.0
+     (Link Data) Network Mask: 255.255.255.0
+      Number of TOS metrics: 0
+       TOS 0 Metric: 10
+
+    Link connected to: Stub Network
+     (Link ID) Net: 10.10.11.0
+     (Link Data) Network Mask: 255.255.255.0
+      Number of TOS metrics: 0
+       TOS 0 Metric: 10
+
+
+[Q9]
+Router LSAs : 4
+Network LSAs : 4
+Indeed r2 receives 4 router LSAs from the 4 ospf enabled routers (r1, r2, r3 and r5) because each router needs to send a router LSA to describe itself to the others in the same ospf area.
+(Each ospf router floods a type 1 lsa in the area)
+And r2 receives 4 network LSAs corresponding to the 4 Designated Routers in the spanning tree (10.10.12.2, 10.10.23.3, 10.10.25.2 and 10.10.35.5).
+(Each ospf DR router floods a type 2 lsa)
+
+[Q10]
+h2> traceroute 10.10.35.5
+traceroute to 10.10.35.5 (10.10.35.5), 64 hops max
+  1   10.10.22.2  0.912ms  0.820ms  0.675ms 
+  2   10.10.23.3  1.922ms  10.10.35.5  2.137ms  10.10.23.3  1.291ms 
+
+We can see that the traceroute packets are passed from r2 to r3 and r5 (some go to r2, the others to r5).
+At r2, we see two routes for 10.10.35.0/24 :
+10.10.35.0/24  proto zebra  metric 20 
+        nexthop via 10.10.23.3  dev r2-eth2 weight 1
+        nexthop via 10.10.25.5  dev r2-eth3 weight 1
+
+Since the cost to go from r2 to 10.10.35.0/24 is the same from r3 and r5, ospf saves both routes to perform per flow load balancing.
+
+[Q11]
+As we saw, yes.
+
+[Q12]
+When trying to ping from Jon to Dany, we get destination net unreachable.
+Doing a capture on r1, we observe that r1 does sends "network unreachable" to Jon.
+Looking at the routing info "ip show ospf database" on r1, we observe that there is no LSA for 10.10.12.0/24 which explains the "network unreachable".
+Looking at the ospfd.conf of r1, we see that "!network 10.10.12.0/24 area 0" this line is commented, so we decomment it.
+Indeed this configuration specifies that 10.10.12.0/24 is not ospf enabled, which we have to change.
+After changing it (decommented it and restarted ospfd, and waiting some time), we see that ping works from Jon to Dany.
 
 
