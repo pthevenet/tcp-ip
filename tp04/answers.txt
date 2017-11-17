@@ -214,3 +214,65 @@ We also see an advertisement from r4 for 10.10.45.4/24, and that r4 is connected
 We see two ZEBRA_IPV4_ROUTE_ADD : one two 10.10.35.0/24 via 10.10.14.4 and one to 10.10.45.0/24 via 10.10.14.4 (checking the zebra daemon).
 This makes sense because by adding r4, we get better paths to 10.10.45.0/24 and 10.10.35.0/24 via r4, however the other paths are not affected because adding r4 does not reduce the shortest path length.
 
+[Q19]
+First, we check the cost of the routes from h1 to h2 and h2 to h1 in routers r1 and r2 and we get 2. (show ipv6 ospf6 route  detail).
+We need to change only the cost from r2 to r1, not the cost from r1 to r2.
+We compute that the cost of the path r2 -> r5 -> r4 -> r1 is 4 (default costs for router->network is 1).
+Therefore we need cost(r2->r1) > 4. Without changing cost(r1 -> r2).
+Therefore the simplest change is to set the cost of the outgoing link in r2 to eth1 to 4.
+
+interface r2-eth1
+ ipv6 ospf6 instance-id 1
+ ipv6 ospf6 cost 4
+
+We check that this makes the cost r2->r1 to 5.
+
+We get a correct traceroute6 from h2 to h1 (going r1->r5->r4->r2).
+
+root@h2:/# traceroute6  2001:1:0:11::10
+traceroute to 2001:1:0:11::10 (2001:1:0:11::10) from 2001:1:0:22::20, 30 hops max, 24 byte packets
+ 1  2001:1:0:22::2 (2001:1:0:22::2)  3.35 ms  1.626 ms  1.364 ms
+ 2  2001:1:0:12::5 (2001:1:0:12::5)  2.235 ms  2.627 ms  2.242 ms
+ 3  2001:1:0:45::4 (2001:1:0:45::4)  2.984 ms  2.975 ms  2.811 ms
+ 4  2001:1:0:12::1 (2001:1:0:12::1)  3.174 ms  3.085 ms  3.248 ms
+ 5  2001:1:0:11::10 (2001:1:0:11::10)  3.944 ms  3.975 ms  3.447 ms
+
+And a correct traceroute6 from h1 to h1 (going r1->r2)
+
+root@h1:/# traceroute6 2001:1:0:22::20
+traceroute to 2001:1:0:22::20 (2001:1:0:22::20) from 2001:1:0:11::10, 30 hops max, 24 byte packets
+ 1  2001:1:0:11::1 (2001:1:0:11::1)  6.203 ms  2.678 ms  1.427 ms
+ 2  2001:1:0:25::2 (2001:1:0:25::2)  3.612 ms  2.785 ms  2.96 ms
+ 3  2001:1:0:22::20 (2001:1:0:22::20)  4.029 ms  4.784 ms  3.762 ms
+
+[Q20]
+We can see that r2 is no longer a neighbor.
+The LSA of r2 no longer include the transit network 10.10.12.0/24.
+Moreover the LSA of r1 now specifies that r1 is connected to a stub network 10.10.12.0/24 (formerly a transit network).
+
+For r2's zebra, there is no more enabled interfaces connected to 10.10.12.0/24, therefore no connection to it.
+For r1, there is still r1-eth1 connected to this network, this exlains the changes.
+
+From the database, ospf computes the new routes, which implies that the routes r1<->r2 is now r1<->r4<->r5<->r2, the other routes are not changed because from r1 it used to go to r4 for any other route.
+
+[Q21]
+We cannot ping to interface r2-eth1 because this interface is down, because we disabled it in Q20.
+
+693: r2-eth1: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast state DOWN group default qlen 1000
+
+[Q22]
+Yes, because this time it does not disable the interface, but it does not enable ospf on this interface. 
+Therefore, it should work, because the interface is active, and the packet is forwarded to r2.
+For r1, 10.10.12.0/24 is now a stub network, and 10.10.12.2 is still an interface belonging to this network, therefore r1 knows the route to this interface as a stub interface.
+
+[Q23]
+From OSPF perspective, this is as if in r2-eth1 are not connected to the other r2 interfaces.
+OSPF sees r2-eth1 as an interface in the stub network, and therefore every flow with destination r2-eth1 goes to r1 because it is part of the stub network.
+
+[Q24]
+ospfd provides simple password authentication, said to be osolete, and should be replaced by md5 :
+ofsfd provides md5 hmac authentication, using a common password.
+This is not secure because md5 is obsolete (collisions can be found).
+
+[Q25]
+One can use a single symetric key for the communication between the administrator and the routers, and then the admin can distribute the different keys to each routers.
