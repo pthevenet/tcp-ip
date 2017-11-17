@@ -161,4 +161,56 @@ Looking at the ospfd.conf of r1, we see that "!network 10.10.12.0/24 area 0" thi
 Indeed this configuration specifies that 10.10.12.0/24 is not ospf enabled, which we have to change.
 After changing it (decommented it and restarted ospfd, and waiting some time), we see that ping works from Jon to Dany.
 
+[Q13]
+The spf tree :
+r5> show ipv6 ospf6 spf tree 
++-10.10.45.5 [0]
+   +-10.10.45.5 Net-ID: 0.0.2.33 [1]
+   |  +-10.10.25.2 [1]
+   |     +-10.10.25.2 Net-ID: 0.0.2.21 [2]
+   |     |  +-10.10.14.1 [2]
+   |     +-10.10.35.3 Net-ID: 0.0.2.25 [2]
+   +-10.10.45.5 Net-ID: 0.0.2.41 [1]
+      +-10.10.35.3 [1]
+
+r5>show ipv6 ospf6 linkstate
+indicates us the cost of the links, we can deduce that the cost from a router to a network is 1, the cost from a network to a router is 0.
+
+[Q14]
+No, because h1 does not run ospf, and therefore do not take care of the LSAs.
+The Default Gateway was configured from the start. "ip route" on h1 does not show any updates.
+
+[Q15]
+network 10.10.35.0/24 metric : [110/30]
+network 10.10.45.0/24 metric : [110/30]
+
+[Q16]
+r4 appears in the neighbor list of r1 after a few seconds.
+At r1, we see the state of r4 going from Init/DROther to Full/Backup.
+
+This line shows the change of state :
+2017/11/16 20:28:22 OSPF: nsm_change_state(10.10.45.4, Loading -> Full): scheduling new router-LSA origination
+
+The total number of states in the OSPF neighbor fsm is 8 (Down, Attempt,  Init, 2-Way, ExStart, Exchange, Loading, Full) see RFC 2328 10.1
+
+[Q17]
+There is a new router LSA :
+Link ID         ADV Router      Age  Seq#       CkSum  Link count
+10.10.45.4      10.10.45.4         3 0x80000003 0x56e8 2
+
+And a new network LSA :
+Link ID         ADV Router      Age  Seq#       CkSum
+10.10.14.1      10.10.14.1         2 0x80000001 0x5853
+
+
+In the network LSAs descriptions, we can see that 10.10.45.4 has been added as an attached router to the network 10.10.14.1/24.
+Indeed, as r4 becomes ospf enabled, it is added.
+Moreover 10.10.45.4 is also added to the 10.10.45.5/24 network, for the same reasons.
+
+In the router LSAs description, we can see that the link ID 10.10.14.1 is now connected to a Transit Network (it used to be a stub network because there were no other ospf router connected to this subnet) because r4 is now the second ospf router in 10.10.14.0/24.
+We also see an advertisement from r4 for 10.10.45.4/24, and that r4 is connected to two transit networks : r4 detected r1.
+
+[Q18]
+We see two ZEBRA_IPV4_ROUTE_ADD : one two 10.10.35.0/24 via 10.10.14.4 and one to 10.10.45.0/24 via 10.10.14.4 (checking the zebra daemon).
+This makes sense because by adding r4, we get better paths to 10.10.45.0/24 and 10.10.35.0/24 via r4, however the other paths are not affected because adding r4 does not reduce the shortest path length.
 
