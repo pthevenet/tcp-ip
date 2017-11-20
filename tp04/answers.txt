@@ -294,4 +294,34 @@ sudo ovs-ofctl add-flow SW2 in_port=1,actions=output:2
 Now, the ping from h1 to h2 works as expected.
 
 [Q28]
-The ping was unsuccessful because, as we saw in the lectures, having switches that simply learn source MAC addresses by observing traffic only works in networks of switches without loops, which is not the case in our configuration. In fact, when we start mininet, the RYU manager starts logging packets indefinitely, which proves that the switches are indeed forwarding packets in an infinite loop.
+The ping was unsuccessful because, as we saw in the lectures, having switches that simply learn source MAC addresses by observing traffic only works in networks of switches without loops, which is not the case in our configuration. In fact, when we start mininet, the RYU controller starts logging packets indefinitely, which proves that the switches are indeed forwarding packets in an infinite loop.
+
+[Q29]
+Using the command `ovs-ofctl show <switch>` with all five switches, we can see that switches SW3 and SW5 have the following line for one of their interfaces (SW3-eth3 and SW5-eth3):
+
+config:     NO_RECV NO_FLOOD NO_FWD
+
+which means that these switches are configured to discard all packets received on these interfaces, as well as not to forward or flood packets on them. As a consequence, the links SW2-SW3 and SW4-SW5 have been disabled in order to make a spanning tree.
+
+[Q30]
+By looking at the log of the RYU controller, we can see the following line:
+
+[STP][INFO] dpid=01011ca21ab40101: Root bridge.
+
+And we know from the output of `ovs-ofctl show SW1` that the above dpid belongs to SW1, therefore SW1 is the root of the spanning tree.
+
+As we mentioned in Q29, only two ports are closed: port e3 from SW3 and port e3 from SW5.
+
+The outputs of `ovs-ofctl show <switch>` for the different switches show that all links are equivalent. Therefore it doesn't matter which links are taken down, as long as a spanning tree with no cycles is constructed. By taking down SW2-SW3 and SW4-SW5, we can clearly see that all switches are covered and that no cycle exists anymore. So the tree is a valid minimum spanning tree.
+
+The path taken from h3 to h2 is h3->SW3->SW1->SW2->h2. If we ping h2 from h3 and run wireshark on SW1, we can see that SW1 receives both h3's requests and h2's reponses, which proves that this is the path taken.
+
+[Q31]
+Using `ovs-ofctl show <switch>` for all five switches, we discover the following new changes:
+- The link SW1-SW2 is reported as being down (config: PORT_DOWN/state: LINK_DOWN)
+- The interface eth3 of SW3 is restored
+- The interface eth3 of SW5 is restored
+- The interface eth3 of SW4 is now disabled
+
+The result is still a valid minimum spanning tree: SW3 is connected to SW1, SW2 and SW5, while SW2 is connected to SW4.
+The new path from h2 to h3 is h2->SW2->SW3->h3.
