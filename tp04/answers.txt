@@ -276,3 +276,22 @@ This is not secure because md5 is obsolete (collisions can be found).
 
 [Q25]
 One can use a single symetric key for the communication between the administrator and the routers, and then the admin can distribute the different keys to each routers.
+
+==================== BONUS EXERCISE ====================
+
+[Q26]
+There is a single subnet in this configuration to which all switches belong.
+Because of this, and since the IP addresses only have their 16 highest bits equal, the correct network mask should be (at most) 16 or 255.255.0.0.
+Running `ip addr` on the different hosts confirms this as we see that hosts have IP addresses with a subnet mask of 16.
+
+[Q27]
+The ping does not work yet. If we use wireshark on SW1 and SW2, we see that SW2 receives SW1's who has packets but SW1 does not receive SW2's responses. This is because the flows we added so far only enable communication in one direction (from h1 to SW2 in the case of SW1 and from SW1 to h2 in the case of SW2).
+We need to add similar flows in the opposite direction. For this, we enter the following commands:
+
+sudo ovs-ofctl add-flow SW1 in_port=2,actions=output:1
+sudo ovs-ofctl add-flow SW2 in_port=1,actions=output:2
+
+Now, the ping from h1 to h2 works as expected.
+
+[Q28]
+The ping was unsuccessful because, as we saw in the lectures, having switches that simply learn source MAC addresses by observing traffic only works in networks of switches without loops, which is not the case in our configuration. In fact, when we start mininet, the RYU manager starts logging packets indefinitely, which proves that the switches are indeed forwarding packets in an infinite loop.
