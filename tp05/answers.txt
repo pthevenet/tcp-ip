@@ -1,0 +1,63 @@
+[Q1]
+After several tries :
+Loss percentage observed : 0%
+Goodput : 100.2 kbps
+Except for the first second, the goodput is less.
+
+[Q2]
+We observe a goodput at around 9160.6kbps
+
+[Q3]
+1000 bytes of data + 8 bytes UDP header + 20 bytes IP header = 1028 bytes of data in the ethernet frame
+ethernet frame header : 14 bytes minimum therefore 1042 bytes total for the ethernet frame
+This is exactly what we observe on wireshark.
+
+[Q4]
+We call throuhput the rate of sent bytes (app, udp, ip and ethernet).
+As we saw, for 1000 bytes of application data we "lose" 44 bytes for headers.
+Therefore the goodput is 1000/1042 the throughput.
+
+The max goodput x and bottleneck limit y follows the relation : 
+y * 1000/1042 = x
+
+Therefore, if the max throughput is y = 5Mbps, the max goodput is x ~= 4,798Mbps
+That is 4798 kbps.
+
+
+[Q5]
+The loss percentage is 0%
+The goodput is (average) 100.1kbps
+
+[Q6]
+- 5Mbps
+Loss : 4.141 %
+Goodput : 4798.6 kbps
+
+Here we observe that we just pass the theoritical rate limit of the router, that is, we achieve the theoritical goodput while having a bit of loss due to the fact that we are sending strictly more application than the bottleneck rate can permit (5Mbps vs 4.78 Mbps).
+The goodput is slightly more than the theoritical's, it may be due to approximation in time or data received.
+
+- 10Mbps
+Loss : 52.033%
+Goodput : 4800.8
+
+Here we observe the loss increasing greatly. In fact we are trying to send at more than 2 times the theoritical limit.
+The goodput is approximately the same as with 5Mbps, which is approximately the same as the theoritical goodput.
+This is because the router drops roughly one packet for 2 received, and process the rest, since there is only one flow this explains the results.
+
+[Q7]
+1000 bytes of data + 32 bytes TCP header + 20 bytes IP header = 1052 bytes of data in the ethernet frame (with no TCP options)
+ethernet frame header : 14 bytes minimum therefore 1066 bytes total for the ethernet frame (minimum)
+On Wireshark we observe 1066 bytes.
+
+[Q8]
+See Q4 for the same explanations
+The max goodput x and bottleneck limit y follows the relation : 
+y * 1000/1052 = x
+
+For y = 5Mbps, the goodput is x = 4,754Mbps.
+
+[Q9]
+After some time, the goodput is 4662.4 kbps.
+We see that it is less than the theoritical, which is normal, but not so close.
+This is because of TCP congestion control (here cubic), we lose some goodput because of the multiplicative decrease.
+
