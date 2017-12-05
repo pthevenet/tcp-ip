@@ -61,3 +61,33 @@ After some time, the goodput is 4662.4 kbps.
 We see that it is less than the theoritical, which is normal, but not so close.
 This is because of TCP congestion control (here cubic), we lose some goodput because of the multiplicative decrease.
 
+[Q16]
+The observed RTT remains around 300ms, never going under that value. This is expected because of the delay we just added to h3 on its eth0 interface.
+
+[Q17]
+Let x1 and x2 be the rates allocated by TCP to a single flow for h1 and h2 respectively.
+Assuming Proportional Fairness, we must maximize the utility function U(x) = log(x):
+
+max U = log(x1) + 3 * log(x2)
+
+where x1 + x2 < c, since all four flows share the link r1-h3. Setting x1 = x, we have x2 = (c - x) / 3. We obtain the following function to maximize:
+
+f(x) = log(x) + 3 * log((c - x) / 3)
+
+f'(x) = (1 / x) - (3 / (c - x))
+
+After solving f'(x) = 0, we find the solution x = (c / 4). With c = 5 Mbps, this results in the following allocation:
+
+x1 = 5 / 4 = 1.25 Mbps                   => h1 goodput = 1.25 Mbps
+x2 = (5 - x1) / 3 = 3.75 / 3 = 1.25 Mbps => h2 goodput = 1.25 * 3 = 3.75 Mbps
+
+All flows get the same rate. This means that overall h2 gets three times the goodput of h1.
+
+[Q18]
+After the values stabilize more or less, we have the following results:
+- The average goodput at h1 is around 1200kbps
+- The average goodput at each of h2's clients is around 1100kbps, so the average aggregate goodput at h2 is around 3300kbps
+This corresponds more or less to our theoretical analysis. Apart from standard fluctuation/stabilization issues, the slight differences could be due to the fact that the version of TCP being used is CUBIC which, as we saw in class, has a slightly different utility function than Proportional Fairness, which we assumed in Q17.
+
+[Q19]
+The RTTs observed on the four clients are almost always significantly higher than 300ms, reaching up to 350ms. This increase is significant, especially in a virtual environment like this, which means that there is most probably a queuing delay.
