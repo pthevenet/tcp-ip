@@ -91,3 +91,30 @@ This corresponds more or less to our theoretical analysis. Apart from standard f
 
 [Q19]
 The RTTs observed on the four clients are almost always significantly higher than 300ms, reaching up to 350ms. This increase is significant, especially in a virtual environment like this, which means that there is most probably a queuing delay.
+
+[Q33]
+Let n1 be the first node connecting A and C to the common link,
+Let n2 be the node connecting B and D to the common link.
+At n1, the ratio of accepted traffic is 2.5/20+2 = 0.1136
+Therefore on the common link, A's flow is at max 0.2272=2 * 0.1136 Mbps and C's
+flow at max 2.272 Mbps.
+At n2, A's flow can go to B without rate reduction, while C's flow has to be red
+uced to at max 0.5 Mbps.
+
+Finally, the max goodput at B is 0.2272 Mbps and the max goodput at D is 0.5 Mbp
+s.
+
+[Q34]
+Applying the water filling algorithm, we first set xA and xC to 0.5Mbps, and the
+n we can improve xA to be 2 Mbps.
+Then no improvments can be made because it saturates the common link.
+Therefore a max-min allocation is 2Mbps for A, 0.5Mbps for C.
+
+[Q35]
+We have this set of constraints for A's rate xA and C's rate xC :
+xA + xC <= 2.5
+xC <= min(0.5, 20) = 0.5
+xA <= min(2, 20) = 2
+But xA, xC = 2, 0.5 satisfies equality on theses constraints, therefore is a proportional allocation.
+
+
