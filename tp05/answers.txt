@@ -167,6 +167,37 @@ We see that unlike with max-min fairness, proportional fairness does penalize 1t
 [Q27]
 Assuming no queuing delays, the RTT for each of these flows should be 300ms (150ms delay for each way).
 
+[Q28]
+The measured goodputs are:
+
+[Q28.a] 1to2 -> ~1110 kbps
+[Q28.b] 1to3 ->  ~740 kbps
+[Q28.c] 2to3 -> ~1110 kbps
+
+[Q29]
+We could say that this corresponds more or less to our analysis, since we know that CUBIC performs similarly to RENO for relatively small RTTs, which has a utility function in between max-min fairness and proportional fairness, and the measured goodputs are kind of in between the allocations we found with max-min fairness and proportional fairness.
+
+[Q30]
+The average RTT of all three connections is around 400ms. Since we added 300ms of delay to the RTT on all flows, we still have approximately 100ms of queuing delay. Assuming also that the two routers are facing equal queuing delays, this means that the queuing delay on each of these routers is around 50ms.
+
+[Q31]
+Here are the measured goodputs with TCP CUBIC:
+
+1to2 -> ~1100kbps
+1to3 ->  ~670kbps
+2to3 -> ~1120kbps
+
+We can see that the goodput of 1to3 is significantly smaller than those of 1to2 and 2to3. The results didn't really change that much from when the delay at h2 was 150ms. This proves that CUBIC is independent of the RTTs of the flows.
+
+[Q32]
+Here are the measured goodputs with TCP RENO:
+
+1to2 ->  ~420kbps
+1to3 -> ~1310kbps
+2to3 ->  ~420kbps
+
+We can see that this time, the goodput of 1to3 is significantly larger than those of 1to2 and 2to3. The results here are kind of the opposite of what we obtained with TCP CUBIC. This shows again that RENO depends highly on the RTTs of the flows. In contrast, CUBIC does not and therefore works better than RENO in a regime where the RTT or product delay-bandwidth are small. For instance, we see that in this last scenario where we increased the outgoing delay of h2's interface, CUBIC handled the situation better and kept the rates of 1to2 and 2to3 higher than 1to3.
+
 [Q33]
 Let n1 be the first node connecting A and C to the common link,
 Let n2 be the node connecting B and D to the common link.
