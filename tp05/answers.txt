@@ -91,3 +91,78 @@ This corresponds more or less to our theoretical analysis. Apart from standard f
 
 [Q19]
 The RTTs observed on the four clients are almost always significantly higher than 300ms, reaching up to 350ms. This increase is significant, especially in a virtual environment like this, which means that there is most probably a queuing delay.
+
+[Q20]
+We apply a similar reasoning to what we've done in Q17. We need to maximize the utility function of TCP RENO which is U(x) = (sqrt(2) / RTT) * arctan(x * RTT / sqrt(2)):
+
+max U = (sqrt(2) / RTT1) * arctan(x1 * RTT1 / sqrt(2)) + 3 * (sqrt(2) / RTT2) * arctan(x2 * RTT2 / sqrt(2))
+
+We set x1 = x and x2 = (c - x) / 3. We then derive the obtained function f (the math is long for this one so we didn't include it), and set f'(x) = 0, which results in a quadratic equation that has two solutions:
+
+(1) x = (c * RTT2 * (RTT2 - 3 * RTT1)) / (RTT2^2 - 9 * RTT1^2)
+(2) x = (c * RTT2 * (RTT2 + 3 * RTT1)) / (RTT2^2 - 9 * RTT1^2)
+
+We can now plug in c = 5, RTT1 = 0.3 + Y, RTT2 = 0.3 (we use here 0.3 instead of 300 to keep all time units in seconds, as c is in Mbps). After simplification, we obtain:
+
+(1) x =   (0.9 + 4.5 * Y) / (0.72 + 5.4 * Y + 9 * Y^2)
+(2) x = - (  6 + 4.5 * Y) / (0.72 + 5.4 * Y + 9 * Y^2)
+
+Since Y > 0, we can immediately rule out (2) which would give a negative allocation to x1. This means that the goodput that h1 and h2 will get as a function of Y is given by the following:
+
+h1 -> x1     =       (0.9 + 4.5 * Y) / (0.72 + 5.4 * Y + 9 * Y^2)
+h2 -> 3 * x2 = (c - ((0.9 + 4.5 * Y) / (0.72 + 5.4 * Y + 9 * Y^2)))
+
+Numerically, we just need to replace Y by 0.2 and 0.4 for scenarios D2 and D3 respectively:
+
+[Q20a/(i) ] ~0.83
+[Q20a/(ii)] ~4.17
+[Q20b/(i) ] ~0.63
+[Q20b/(ii)] ~4.38
+
+[Q21]
+Here are the measured aggregate goodputs for h1 and h2:
+
+[Q21a/(i) ] D2: h1 -> ~2070 kbps
+[Q21a/(ii)] D2: h2 -> ~2390 kbps
+[Q21b/(i) ] D3: h1 -> ~2080 kbps
+[Q21b/(ii)] D3: h2 -> ~2335 kbps
+
+[Q22]
+We now switch to TCP RENO. Here are the measured aggregate goodputs for h1 and h2:
+
+[Q22a/(i) ] D2: h1 -> ~1590 kbps
+[Q22a/(ii)] D2: h2 -> ~2400 kbps
+[Q22b/(i) ] D3: h1 -> ~1250 kbps
+[Q22b/(ii)] D3: h2 -> ~2660 kbps
+
+[Q23]
+The results for TCP RENO do not correspond very well to our theoretical analysis.
+
+[Q24]
+As we saw in class, TCP CUBIC is independent of the RTT measured for a given host. This explains why the measured goodputs are very close in scenarios D2 and D3 each with a different RTT at h1. On the other hand, this is not the case for TCP RENO whose rate allocations depends highly on the observed RTT. This is why with TCP RENO, we see that h1's average goodput is reduced by around 300ms between scenarios D2 and D3.
+TCP CUBIC works better in a regime where the RTT or product delay-bandwidth values are considered to be high. This is mainly because in a network with such properties, the limit that congestion control would impose on the congestion window can be so high that it is simply inefficient to do additive increase as it would take a lot of time to reach the limit once again after each multiplicative decrease. With cubic increase, TCP CUBIC tries to get closer to the limit a little bit more quickly and therefore make better use of the resources. That along with the 0.7 multiplicative decrease (compared to 0.5 with RENO) basically aims to attenuate the "sawtooth" effect of TCP for such networks.
+
+[Q25]
+It is relatively easy to find a max-min fair allocation by applying the water-filling algorithm. In this case, we keep increasing the allocations for all three flows, and both bottlenecks with 2Mbps bandwidth will become saturated when all three flows are allocated an equal rate of 1Mbps. At this point, all three sources are frozen, the algorithm terminates and we have our allocations.
+
+[Q26]
+For proportional fairness, we need to maximize the utility function just like we did earlier:
+
+max U = log(x1) + log(x2) + log(x3)
+
+We can set x = x1, x2 = 2 - x and x3 = 2 - x:
+
+f(x) = log(x) + 2 * log(2 - x)
+
+f'(x) = (1 / x) - (2 / (2 - x))
+
+Solving f'(x) = 0, we find the solution x = 2 / 3 ~= 0.67 which results in the following allocation:
+
+1to3 -> 0.67 Mbps
+1to2 -> 1.33 Mbps
+2to3 -> 1.33 Mbps
+
+We see that unlike with max-min fairness, proportional fairness does penalize 1to3 for using more links in the network.
+
+[Q27]
+Assuming no queuing delays, the RTT for each of these flows should be 300ms (150ms delay for each way).
