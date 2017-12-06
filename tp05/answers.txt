@@ -117,4 +117,36 @@ xC <= min(0.5, 20) = 0.5
 xA <= min(2, 20) = 2
 But xA, xC = 2, 0.5 satisfies equality on theses constraints, therefore is a proportional allocation.
 
+[Q36]
+- h1 <-> h4
+goodput :56.4 (varies a lot from 2kbps to 480kbps)
+loss : 93.331%
+- h2 <-> h3
+goodput : 480 kbps
+loss: 97.614%
 
+[Q37]
+With rates 2Mbps for h1 and 0.5Mbps for h2, we get 
+- h1 <-> h4
+goodput : 1911.1 kbps
+loss : 4.516%
+- h2 <-> h3
+goodput : 479.9 kbps
+loss: 3.460%
+
+We clearly see an improvements in the loss rate, even though the rates are lower than in q36 : congestion collapse.
+
+[Q38] 
+- h1 <-> h4 goodput : 1849.1kbps
+- h2 <-> h3 goodput : 467.4kbps
+Which is close to the max min allocation (a bit worse).
+
+[Q39]
+We saw that congestion collapse occures when the sending rates are decided independently of the network topology and with no congestion control.
+With knowledge of the network topology and bottlenecks, one can set the rates so that no congestion control is necessary.
+However a stable network topology is rare, therefore the best way to ensure no congestion collapse and use the links fairly and efficiently is to have an adaptative congestion control mechanism, which have advantages :
+- automatic, no knowledge required about the current network states.
+- adaptative, adapts itself to the current network state
+- avoids congestion
+- divide "fairly" the network ressources between flows
+- allows a good efficiency for links and good usage
