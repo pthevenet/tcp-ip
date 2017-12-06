@@ -114,9 +114,9 @@ def run():
     
     # Specify routing commands and delay configurations
     info('*** Configuring routing and delays')
-    r1.cmd('ip route add default via 10.0.10.10 dev r1-eth1')
+    r1.cmd('ip route add default via 10.0.10.20 dev r1-eth1')
     r1.cmd('ip route add 10.0.1.0/24 dev r1-eth0')
-    r2.cmd('ip route add default via 10.0.10.20 dev r2-eth0')
+    r2.cmd('ip route add default via 10.0.10.10 dev r2-eth0')
     r2.cmd('ip route add 10.0.2.0/24 dev r2-eth1')
     r2.cmd('ip route add 10.0.3.0/24 dev r2-eth2')
     h1.cmd('ip route add default via 10.0.1.10 dev h1-eth0')
