@@ -1,0 +1,6 @@
+4.1
+R1, R2 : zebra + bgpd
+R3, R4, R5 : zebra + bgpd + ospfd + ospf6d
+4.2
+R1, R2 disable bpgd neighbors r1 <-> r2
+

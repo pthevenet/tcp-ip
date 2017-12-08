@@ -1,0 +1,43 @@
+[Q1]
+The bgp database in R5 :
+   Network          Next Hop            Metric LocPrf Weight Path
+*>i192.10.10.0      192.13.13.1              1    100      0 65100 ?
+* i192.12.12.0      192.24.24.2              1    100      0 65200 ?
+*>i                 192.13.13.1              1    100      0 65100 ?
+*>i192.13.13.0      192.34.34.3              1    100      0 ?
+*>i192.20.20.0      192.24.24.2              1    100      0 65200 ?
+*>i192.24.24.0      192.34.34.4              1    100      0 ?
+* i192.34.34.0      192.34.34.4              1    100      0 ?
+* i                 192.34.34.3              1    100      0 ?
+*>                  0.0.0.0                  1         32768 ?
+*> 192.50.50.0      0.0.0.0                  1         32768 ?
+
+Total number of prefixes 7
+
+The subnet 192.10.10.0/24, 192.12.12.0/24 and 192.20.20.0/24 are not onlink on R5, therefore R5 learnt about them by using BGP.
+In particular, R1 advertised networks 192.10.10.0/24 and 192.12.12.0/24 to R3 by ebgp, and r2 the networks 192.12.12.0/24 and 192.20.20.0/24 to R4 by ebgp.
+Then both routers r3 and r4 updated there ADJ-RIB-IN, and then sends the "best" routes to R5 using ibgp (and to each other).   
+This way, R3 and R4 sends route info for the subnets.
+
+[Q2]
+KEEPALIVE messages are used to inform bgp neighbors that this peer is still alive.
+If a peer A does not receive a KEEPALIVE message from its neighbor B for more than HOLDDOWN seconds, A will declare B dead, and delete all routes from B's announcements.
+We find the period of KEEPALIVE messages to be 60 seconds, afer looking on wireshark at two successive KEEPALIVE message from the same peer.
+
+[Q3]
+After some time, all hosts and routers can ping each other.
+Therefore all subnets are accessible from each router and hosts.
+
+[Q4]
+R1 entry for 192.20.20.0/24 :
+*> 192.20.20.0      192.13.13.3                            0 65345 65200 ?
+
+R2 entry for 192.10.10.0/24 :
+*> 192.10.10.0      192.24.24.4                            0 65345 65100 ?
+
+As we can see :
+in R1, to route to 192.20.20.0, the AS paths is 65345 65200, that is it does not directly go to AS 65200 via R2
+in R2, to route to 192.10.10.0, the AS paths is 65345 65100, that is it does not directly go to AS 65100 via R1
+as expected
+
+[Q5]
