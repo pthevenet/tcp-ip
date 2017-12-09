@@ -1,0 +1,215 @@
+2017/12/08 14:41:22 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/08 14:41:22 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/08 14:41:22 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/08 14:41:22 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/08 14:41:22 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/08 14:41:22 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/08 14:41:28 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 14:41:28 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 14:41:29 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 14:41:29 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 14:41:31 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 14:41:31 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 14:41:59 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 14:42:01 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 15:04:20 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 15:04:20 ZEBRA: netlink-cmd error: Invalid argument, type=RTM_NEWROUTE(24), seq=29, pid=0
+2017/12/08 15:04:21 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 15:04:21 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 15:04:21 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 15:04:21 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 15:04:21 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 15:04:21 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 15:09:57 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/08 15:09:57 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/08 15:09:57 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/08 15:09:57 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/08 15:09:57 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/08 15:09:57 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/08 15:10:03 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 15:10:06 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 15:10:06 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 15:10:06 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 15:10:33 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 15:10:33 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 15:10:36 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 15:11:02 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:27:19 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 21:27:19 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 21:27:20 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 21:27:20 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 21:27:20 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 21:27:20 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 21:27:20 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 21:27:20 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 21:37:06 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/08 21:37:06 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/08 21:37:06 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/08 21:37:06 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/08 21:37:06 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/08 21:37:06 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/08 21:37:11 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 21:37:21 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 21:37:30 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/08 21:37:30 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/08 21:37:30 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/08 21:37:30 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/08 21:37:30 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/08 21:37:30 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/08 21:37:38 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 21:37:38 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 21:38:08 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 21:38:08 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:38:08 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:38:38 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:38:38 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:38:38 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:49:13 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 21:49:13 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 21:49:14 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 21:49:14 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 21:49:14 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 21:49:14 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 21:49:14 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 21:49:23 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/08 21:49:23 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/08 21:49:23 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/08 21:49:23 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/08 21:49:23 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/08 21:49:23 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/08 21:49:32 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 21:49:32 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 21:49:59 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:49:59 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:50:02 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 21:50:29 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:50:29 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 21:50:29 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 22:28:15 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 22:28:15 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 22:28:16 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 22:28:16 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 22:28:16 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 22:28:16 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 22:28:16 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 22:28:27 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/08 22:28:27 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/08 22:28:27 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/08 22:28:27 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/08 22:28:27 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/08 22:28:27 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/08 22:28:32 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 22:28:35 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 22:28:35 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 22:29:02 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 22:29:05 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 22:29:31 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 22:44:34 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 22:44:34 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 22:44:35 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 22:44:35 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 22:44:35 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 22:44:35 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/08 22:49:31 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/08 22:49:31 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/08 22:49:31 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/08 22:49:31 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/08 22:49:31 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/08 22:49:31 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/08 22:49:36 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 22:49:38 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 22:49:38 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 22:50:08 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 22:50:36 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 22:50:36 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 22:50:36 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 23:38:55 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 23:39:08 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/08 23:39:28 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 23:39:36 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 23:39:36 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 23:39:36 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/08 23:39:38 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/08 23:40:06 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:08:46 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:08:46 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:08:47 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:08:47 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:08:47 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:08:47 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:08:47 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:08:47 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:08:47 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:09:20 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/09 00:09:20 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/09 00:09:20 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/09 00:09:20 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/09 00:09:20 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/09 00:09:20 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/09 00:09:26 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:09:26 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:09:26 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:09:27 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:09:29 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:09:29 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:09:30 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:27:24 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:27:24 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:27:24 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:27:24 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:27:24 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:27:24 ZEBRA: netlink-cmd error: Invalid argument, type=RTM_NEWROUTE(24), seq=22, pid=0
+2017/12/09 00:27:25 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:27:25 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:27:25 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:27:25 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:27:25 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:27:37 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/09 00:27:37 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/09 00:27:37 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/09 00:27:37 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/09 00:27:37 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/09 00:27:37 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/09 00:27:42 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:27:42 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:27:43 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:27:43 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:27:45 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:27:46 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:28:13 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:28:15 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:56:27 ZEBRA: netlink-cmd error: Invalid argument, type=RTM_NEWROUTE(24), seq=25, pid=0
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_DELETE] 19
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:56:27 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_DELETE] 41
+2017/12/09 00:56:40 ZEBRA: Zebra 0.99.22.4 starting: vty@2601
+2017/12/09 00:56:40 ZEBRA: zebra message received [ZEBRA_HELLO] 1
+2017/12/09 00:56:40 ZEBRA: client 16 says hello and bids fair to announce only bgp routes
+2017/12/09 00:56:40 ZEBRA: zebra message received [ZEBRA_ROUTER_ID_ADD] 0
+2017/12/09 00:56:40 ZEBRA: zebra message received [ZEBRA_INTERFACE_ADD] 0
+2017/12/09 00:56:40 ZEBRA: zebra message received [ZEBRA_REDISTRIBUTE_ADD] 1
+2017/12/09 00:56:45 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:56:45 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:56:45 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:56:45 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:56:45 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:56:45 ZEBRA: zebra message received [ZEBRA_IPV4_ROUTE_ADD] 20
+2017/12/09 00:56:49 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41
+2017/12/09 00:56:49 ZEBRA: zebra message received [ZEBRA_IPV6_ROUTE_ADD] 41

@@ -1,0 +1,777 @@
+2017/12/08 14:41:22 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/08 14:41:26 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 14:41:26 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/08 14:41:26 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::f899:71ff:fe61:f2c1), localpref 100, metric 1, path 
+2017/12/08 14:41:26 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/08 14:41:26 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::f899:71ff:fe61:f2c1), localpref 100, metric 1, path 
+2017/12/08 14:41:26 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/08 14:41:28 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/08 14:41:28 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/08 14:41:28 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/08 14:41:28 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/08 14:41:28 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/08 14:41:28 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::d00a:9ff:fe36:7d0), metric 1, path 65100
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::d00a:9ff:fe36:7d0), metric 1, path 65100
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::d00a:9ff:fe36:7d0), metric 1, path 65100
+2017/12/08 14:41:29 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/08 14:41:30 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24
+2017/12/08 14:41:30 BGP: 192.34.34.5 send UPDATE 192.12.12.0/24
+2017/12/08 14:41:30 BGP: 192.34.34.5 send UPDATE 192.13.13.0/24
+2017/12/08 14:41:30 BGP: 192.34.34.5 send UPDATE 192.34.34.0/24
+2017/12/08 14:41:30 BGP: 192.34.34.5 rcvd UPDATE w/ attr: nexthop 192.34.34.5, origin ?, localpref 100, metric 1, path 
+2017/12/08 14:41:30 BGP: 192.34.34.5 rcvd 192.34.34.0/24
+2017/12/08 14:41:30 BGP: 192.34.34.5 rcvd 192.50.50.0/24
+2017/12/08 14:41:30 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1010::/64
+2017/12/08 14:41:30 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1212::/64
+2017/12/08 14:41:30 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1313::/64
+2017/12/08 14:41:30 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:3434::/64
+2017/12/08 14:41:30 BGP: 2001:1:0:3434::5 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::5(fe80::f05c:15ff:fef3:d9a4), localpref 100, metric 1, path 
+2017/12/08 14:41:30 BGP: 2001:1:0:3434::5 rcvd 2001:1:0:3434::/64
+2017/12/08 14:41:30 BGP: 2001:1:0:3434::5 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::5(fe80::f05c:15ff:fef3:d9a4), localpref 100, metric 1, path 
+2017/12/08 14:41:30 BGP: 2001:1:0:3434::5 rcvd 2001:1:0:5050::/64
+2017/12/08 14:41:31 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 1, path 
+2017/12/08 14:41:31 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/08 14:41:31 BGP: 192.34.34.4 rcvd 192.34.34.0/24
+2017/12/08 14:41:31 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/08 14:41:31 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/08 14:41:31 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 14:41:31 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/08 14:41:31 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/08 14:41:31 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/08 14:41:31 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::f899:71ff:fe61:f2c1), localpref 100, metric 1, path 65200
+2017/12/08 14:41:31 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/08 14:41:31 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::f899:71ff:fe61:f2c1), localpref 100, metric 1, path 65200
+2017/12/08 14:41:31 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/08 14:41:36 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, path 65200 65100
+2017/12/08 14:41:36 BGP: 192.34.34.4 rcvd 192.10.10.0/24
+2017/12/08 14:41:36 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/08 14:41:36 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/08 14:41:36 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/08 14:41:58 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/08 14:41:58 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/08 14:41:58 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, path 65100 65200
+2017/12/08 14:41:58 BGP: 192.13.13.1 rcvd 192.24.24.0/24
+2017/12/08 14:41:58 BGP: 192.13.13.1 rcvd 192.20.20.0/24
+2017/12/08 14:41:59 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:5050::/64
+2017/12/08 14:41:59 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/08 14:41:59 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::d00a:9ff:fe36:7d0), path 65100 65200
+2017/12/08 14:41:59 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:2020::/64
+2017/12/08 14:42:00 BGP: 192.34.34.5 send UPDATE 192.20.20.0/24
+2017/12/08 14:42:01 BGP: 192.34.34.4 send UPDATE 192.20.20.0/24
+2017/12/08 14:42:22 BGP: 192.34.34.4 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/08 14:42:22 BGP: 192.34.34.5 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/08 14:42:22 BGP: 192.34.34.4 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 14:42:27 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24
+2017/12/08 15:04:20 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 15:04:20 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/08 15:04:20 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 15:04:20 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 15:04:20 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/08 15:04:20 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/08 15:04:20 BGP: 192.13.13.1 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/08 15:04:20 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/08 15:04:20 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/08 15:04:20 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/08 15:04:20 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/08 15:04:20 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/08 15:04:20 BGP: 192.34.34.5 rcvd UPDATE about 192.50.50.0/24 -- withdrawn
+2017/12/08 15:04:20 BGP: 2001:1:0:3434::5 rcvd UPDATE about 2001:1:0:5050::/64 -- withdrawn
+2017/12/08 15:04:20 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24 -- unreachable
+2017/12/08 15:04:20 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:5050::/64 -- unreachable
+2017/12/08 15:04:20 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 15:04:20 BGP: 192.13.13.1 rcvd UPDATE about 192.24.24.0/24 -- withdrawn
+2017/12/08 15:04:20 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/08 15:04:20 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 15:04:21 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/08 15:04:21 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/08 15:04:21 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/08 15:04:21 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/08 15:04:21 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/08 15:09:57 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/08 15:10:03 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/08 15:10:03 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/08 15:10:03 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/08 15:10:03 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/08 15:10:03 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/08 15:10:03 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/08 15:10:04 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::fc45:cff:fe7a:4416), localpref 100, metric 1, path 
+2017/12/08 15:10:04 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/08 15:10:04 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::fc45:cff:fe7a:4416), localpref 100, metric 1, path 
+2017/12/08 15:10:04 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/08 15:10:04 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 15:10:04 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::ac81:a7ff:fedb:7129), metric 1, path 65100
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::ac81:a7ff:fedb:7129), metric 1, path 65100
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::ac81:a7ff:fedb:7129), metric 1, path 65100
+2017/12/08 15:10:06 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/08 15:10:06 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.5 send UPDATE 192.12.12.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.5 send UPDATE 192.13.13.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.5 send UPDATE 192.34.34.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.5 rcvd UPDATE w/ attr: nexthop 192.34.34.5, origin ?, localpref 100, metric 1, path 
+2017/12/08 15:10:06 BGP: 192.34.34.5 rcvd 192.34.34.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.5 rcvd 192.50.50.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/08 15:10:06 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 1, path 
+2017/12/08 15:10:06 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/08 15:10:06 BGP: 192.34.34.4 rcvd 192.34.34.0/24
+2017/12/08 15:10:06 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1313::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:3434::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:3434::5 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::5(fe80::74de:f6ff:fe67:feb0), localpref 100, metric 1, path 
+2017/12/08 15:10:06 BGP: 2001:1:0:3434::5 rcvd 2001:1:0:3434::/64
+2017/12/08 15:10:06 BGP: 2001:1:0:3434::5 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::5(fe80::74de:f6ff:fe67:feb0), localpref 100, metric 1, path 
+2017/12/08 15:10:06 BGP: 2001:1:0:3434::5 rcvd 2001:1:0:5050::/64
+2017/12/08 15:10:09 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::fc45:cff:fe7a:4416), localpref 100, metric 1, path 65200
+2017/12/08 15:10:09 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/08 15:10:09 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::fc45:cff:fe7a:4416), localpref 100, metric 1, path 65200
+2017/12/08 15:10:09 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/08 15:10:09 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/08 15:10:09 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/08 15:10:11 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1010::/64
+2017/12/08 15:10:11 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1212::/64
+2017/12/08 15:10:33 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/08 15:10:33 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/08 15:10:36 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:5050::/64
+2017/12/08 15:10:36 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/08 15:11:02 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24
+2017/12/08 21:27:19 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 21:27:19 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/08 21:27:19 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 21:27:19 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 21:27:19 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/08 21:27:19 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/08 21:27:19 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/08 21:27:19 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/08 21:27:19 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/08 21:27:19 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/08 21:27:19 BGP: 192.34.34.5 rcvd UPDATE about 192.50.50.0/24 -- withdrawn
+2017/12/08 21:27:19 BGP: 2001:1:0:3434::5 rcvd UPDATE about 2001:1:0:5050::/64 -- withdrawn
+2017/12/08 21:27:20 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24 -- unreachable
+2017/12/08 21:27:20 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:5050::/64 -- unreachable
+2017/12/08 21:27:20 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 21:27:20 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 21:27:20 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/08 21:27:20 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64 -- unreachable
+2017/12/08 21:27:20 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 21:27:20 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 21:27:20 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/08 21:27:20 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/08 21:27:20 BGP: 192.34.34.4 rcvd UPDATE about 192.24.24.0/24 -- withdrawn
+2017/12/08 21:27:20 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24 -- unreachable
+2017/12/08 21:27:20 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64 -- unreachable
+2017/12/08 21:27:20 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 21:27:20 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/08 21:27:20 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/08 21:27:20 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/08 21:37:06 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/08 21:37:11 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::fc47:2ff:fe22:80f5), metric 1, path 65100
+2017/12/08 21:37:11 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::fc47:2ff:fe22:80f5), metric 1, path 65100
+2017/12/08 21:37:11 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::fc47:2ff:fe22:80f5), metric 1, path 65100
+2017/12/08 21:37:11 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/08 21:37:11 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/08 21:37:11 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/08 21:37:11 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::14ed:11ff:feb8:270f), localpref 100, metric 1, path 
+2017/12/08 21:37:11 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/08 21:37:11 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::14ed:11ff:feb8:270f), localpref 100, metric 1, path 
+2017/12/08 21:37:11 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/08 21:37:14 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/08 21:37:14 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/08 21:37:15 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/08 21:37:15 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/08 21:37:15 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/08 21:37:15 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/08 21:37:16 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 21:37:16 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/08 21:37:16 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/08 21:37:16 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/08 21:37:16 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/08 21:37:16 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/08 21:37:16 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::14ed:11ff:feb8:270f), localpref 100, metric 1, path 65200
+2017/12/08 21:37:16 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/08 21:37:16 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::14ed:11ff:feb8:270f), localpref 100, metric 1, path 65200
+2017/12/08 21:37:16 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/08 21:37:20 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 21:37:20 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/08 21:37:20 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 21:37:20 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/08 21:37:20 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/08 21:37:20 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/08 21:37:20 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 21:37:20 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 21:37:21 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/08 21:37:21 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64 -- unreachable
+2017/12/08 21:37:21 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 21:37:21 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 21:37:21 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/08 21:37:21 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/08 21:37:21 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/08 21:37:21 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/08 21:37:21 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/08 21:37:31 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/08 21:37:36 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::84ef:38ff:feaf:1b5a), localpref 100, metric 1, path 
+2017/12/08 21:37:36 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/08 21:37:36 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::84ef:38ff:feaf:1b5a), localpref 100, metric 1, path 
+2017/12/08 21:37:36 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/08 21:37:36 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 21:37:36 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/08 21:37:38 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/08 21:37:38 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/08 21:37:38 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/08 21:37:38 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/08 21:37:38 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/08 21:37:38 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::3848:99ff:fe2e:7b81), metric 1, path 65100
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::3848:99ff:fe2e:7b81), metric 1, path 65100
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::3848:99ff:fe2e:7b81), metric 1, path 65100
+2017/12/08 21:37:38 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/08 21:37:40 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 21:37:40 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/08 21:37:40 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/08 21:37:40 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/08 21:37:40 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/08 21:37:40 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/08 21:37:40 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/08 21:37:40 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/08 21:37:41 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::84ef:38ff:feaf:1b5a), localpref 100, metric 1, path 65200
+2017/12/08 21:37:41 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/08 21:37:41 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::84ef:38ff:feaf:1b5a), localpref 100, metric 1, path 65200
+2017/12/08 21:37:41 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/08 21:37:41 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/08 21:37:41 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/08 21:38:08 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/08 21:38:25 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.5, origin ?, localpref 100, metric 20, path 
+2017/12/08 21:38:25 BGP: 192.34.34.4 rcvd 192.50.50.0/24
+2017/12/08 21:38:38 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/08 21:49:13 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 21:49:13 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/08 21:49:13 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 21:49:13 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/08 21:49:13 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/08 21:49:13 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/08 21:49:13 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/08 21:49:14 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 21:49:14 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 21:49:14 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/08 21:49:14 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64 -- unreachable
+2017/12/08 21:49:14 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 21:49:14 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 21:49:14 BGP: 192.34.34.4 rcvd UPDATE about 192.50.50.0/24 -- withdrawn
+2017/12/08 21:49:14 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/08 21:49:14 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/08 21:49:14 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/08 21:49:14 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/08 21:49:14 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/08 21:49:23 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/08 21:49:28 BGP: stream_read_try: read failed on fd 17: Connection reset by peer
+2017/12/08 21:49:28 BGP: 2001:1:0:3434::4 [Error] bgp_read_packet error: Connection reset by peer
+2017/12/08 21:49:29 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/08 21:49:29 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/08 21:49:29 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/08 21:49:29 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/08 21:49:29 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/08 21:49:29 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/08 21:49:29 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::209c:a9ff:fea7:a92), localpref 100, metric 1, path 
+2017/12/08 21:49:29 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/08 21:49:29 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::209c:a9ff:fea7:a92), localpref 100, metric 1, path 
+2017/12/08 21:49:29 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/08 21:49:29 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 21:49:29 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::4d3:1bff:feb1:655e), metric 1, path 65100
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::4d3:1bff:feb1:655e), metric 1, path 65100
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::4d3:1bff:feb1:655e), metric 1, path 65100
+2017/12/08 21:49:32 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/08 21:49:32 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/08 21:49:32 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/08 21:49:32 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/08 21:49:32 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/08 21:49:32 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 21:49:32 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/08 21:49:32 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/08 21:49:32 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/08 21:49:34 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/08 21:49:34 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/08 21:49:34 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::209c:a9ff:fea7:a92), localpref 100, metric 1, path 65200
+2017/12/08 21:49:34 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/08 21:49:34 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::209c:a9ff:fea7:a92), localpref 100, metric 1, path 65200
+2017/12/08 21:49:34 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/08 21:50:02 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/08 21:50:17 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.5, origin ?, localpref 100, metric 20, path 
+2017/12/08 21:50:17 BGP: 192.34.34.4 rcvd 192.50.50.0/24
+2017/12/08 21:50:29 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/08 21:50:29 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24
+2017/12/08 21:50:29 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/08 22:28:15 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 22:28:15 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/08 22:28:15 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 22:28:15 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/08 22:28:15 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/08 22:28:15 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/08 22:28:16 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/08 22:28:16 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/08 22:28:16 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 22:28:16 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 22:28:16 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/08 22:28:16 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64 -- unreachable
+2017/12/08 22:28:16 BGP: 192.34.34.4 rcvd UPDATE about 192.50.50.0/24 -- withdrawn
+2017/12/08 22:28:16 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 22:28:16 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 22:28:16 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/08 22:28:16 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/08 22:28:16 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/08 22:28:16 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/08 22:28:16 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/08 22:28:27 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/08 22:28:32 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/08 22:28:32 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/08 22:28:32 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/08 22:28:32 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/08 22:28:32 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/08 22:28:32 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/08 22:28:33 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 22:28:33 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/08 22:28:33 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::c847:cff:fe31:2058), localpref 100, metric 1, path 
+2017/12/08 22:28:33 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/08 22:28:33 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::c847:cff:fe31:2058), localpref 100, metric 1, path 
+2017/12/08 22:28:33 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::9c68:eeff:fea8:dc2d), metric 1, path 65100
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::9c68:eeff:fea8:dc2d), metric 1, path 65100
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::9c68:eeff:fea8:dc2d), metric 1, path 65100
+2017/12/08 22:28:35 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/08 22:28:35 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 22:28:35 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/08 22:28:35 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/08 22:28:35 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/08 22:28:35 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/08 22:28:35 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/08 22:28:35 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/08 22:28:35 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 1, path 
+2017/12/08 22:28:35 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/08 22:28:35 BGP: 192.34.34.4 rcvd 192.34.34.0/24
+2017/12/08 22:28:38 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::c847:cff:fe31:2058), localpref 100, metric 1, path 65200
+2017/12/08 22:28:38 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/08 22:28:38 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::c847:cff:fe31:2058), localpref 100, metric 1, path 65200
+2017/12/08 22:28:38 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/08 22:28:38 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/08 22:28:38 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/08 22:29:02 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/08 22:29:05 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/08 22:29:31 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24
+2017/12/08 22:31:14 BGP: Vty connection from 127.0.0.1
+2017/12/08 22:44:34 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 22:44:34 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/08 22:44:34 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 22:44:34 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/08 22:44:34 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/08 22:44:34 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/08 22:44:34 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/08 22:44:34 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/08 22:44:34 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 22:44:34 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 22:44:34 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/08 22:44:34 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64 -- unreachable
+2017/12/08 22:44:35 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/08 22:44:35 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/08 22:44:35 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/08 22:44:35 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/08 22:44:35 BGP: 192.34.34.4 rcvd UPDATE about 192.24.24.0/24 -- withdrawn
+2017/12/08 22:44:35 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24 -- unreachable
+2017/12/08 22:44:35 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64 -- unreachable
+2017/12/08 22:44:35 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 22:44:35 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/08 22:44:35 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/08 22:44:35 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/08 22:49:31 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/08 22:49:34 BGP: stream_read_try: read failed on fd 17: Connection reset by peer
+2017/12/08 22:49:34 BGP: 2001:1:0:3434::4 [Error] bgp_read_packet error: Connection reset by peer
+2017/12/08 22:49:35 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 1, path 
+2017/12/08 22:49:35 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/08 22:49:35 BGP: 192.34.34.4 rcvd 192.34.34.0/24
+2017/12/08 22:49:35 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::e04f:e8ff:fe98:ff9b), localpref 100, metric 1, path 
+2017/12/08 22:49:35 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/08 22:49:35 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::e04f:e8ff:fe98:ff9b), localpref 100, metric 1, path 
+2017/12/08 22:49:35 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/08 22:49:35 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/08 22:49:35 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/08 22:49:36 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/08 22:49:36 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/08 22:49:36 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/08 22:49:36 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/08 22:49:36 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/08 22:49:36 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::dcdf:a8ff:fe84:443c), metric 1, path 65100
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::dcdf:a8ff:fe84:443c), metric 1, path 65100
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::dcdf:a8ff:fe84:443c), metric 1, path 65100
+2017/12/08 22:49:38 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/08 22:49:40 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 22:49:40 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/08 22:49:40 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/08 22:49:40 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/08 22:49:40 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/08 22:49:40 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::e04f:e8ff:fe98:ff9b), localpref 100, metric 1, path 65200
+2017/12/08 22:49:40 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/08 22:49:40 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::e04f:e8ff:fe98:ff9b), localpref 100, metric 1, path 65200
+2017/12/08 22:49:40 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/08 22:49:40 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/08 22:49:40 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/08 22:49:40 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/08 22:50:08 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/08 22:50:23 BGP: Vty connection from 127.0.0.1
+2017/12/08 22:50:25 BGP: 192.34.34.4 send UPDATE 192.50.50.0/24
+2017/12/08 22:50:36 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/08 22:50:36 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/08 22:50:36 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24
+2017/12/08 23:10:59 BGP: Vty connection from 127.0.0.1
+2017/12/08 23:38:55 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24 -- unreachable
+2017/12/08 23:38:55 BGP: 192.34.34.4 send UPDATE 192.50.50.0/24 -- unreachable
+2017/12/08 23:39:00 BGP: 2001:1:0:3434::5 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::5(fe80::68dc:41ff:fee5:feef), localpref 100, metric 1, path 
+2017/12/08 23:39:00 BGP: 2001:1:0:3434::5 rcvd 2001:1:0:3434::/64
+2017/12/08 23:39:00 BGP: 2001:1:0:3434::5 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::5(fe80::68dc:41ff:fee5:feef), localpref 100, metric 1, path 
+2017/12/08 23:39:00 BGP: 2001:1:0:3434::5 rcvd 2001:1:0:5050::/64
+2017/12/08 23:39:00 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1010::/64
+2017/12/08 23:39:00 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1212::/64
+2017/12/08 23:39:00 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1313::/64
+2017/12/08 23:39:00 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:3434::/64
+2017/12/08 23:39:02 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24
+2017/12/08 23:39:02 BGP: 192.34.34.5 send UPDATE 192.13.13.0/24
+2017/12/08 23:39:02 BGP: 192.34.34.5 send UPDATE 192.12.12.0/24
+2017/12/08 23:39:06 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24
+2017/12/08 23:39:06 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/08 23:39:06 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/08 23:39:07 BGP: 192.34.34.4 send UPDATE 192.50.50.0/24
+2017/12/08 23:39:07 BGP: 192.34.34.5 send UPDATE 192.20.20.0/24
+2017/12/08 23:39:07 BGP: 192.34.34.5 send UPDATE 192.24.24.0/24
+2017/12/08 23:39:07 BGP: 192.34.34.5 send UPDATE 192.50.50.0/24
+2017/12/08 23:39:08 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:5050::/64
+2017/12/08 23:39:27 BGP: 192.34.34.5 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 20, path 
+2017/12/08 23:39:27 BGP: 192.34.34.5 rcvd 192.10.10.0/24
+2017/12/08 23:39:27 BGP: 192.34.34.5 rcvd 192.24.24.0/24
+2017/12/08 23:39:27 BGP: 192.34.34.5 rcvd 192.20.20.0/24
+2017/12/08 23:39:27 BGP: 192.34.34.5 rcvd 192.12.12.0/24
+2017/12/08 23:39:27 BGP: 192.34.34.5 send UPDATE 192.50.50.0/24
+2017/12/08 23:39:27 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 23:39:27 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/08 23:39:27 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 23:39:27 BGP: 192.34.34.5 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/08 23:39:28 BGP: 192.34.34.5 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 23:39:32 BGP: 192.34.34.4 send UPDATE 192.50.50.0/24
+2017/12/08 23:39:32 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 23:39:32 BGP: 192.34.34.5 send UPDATE 192.12.12.0/24
+2017/12/08 23:39:32 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24
+2017/12/08 23:39:36 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/08 23:39:36 BGP: 192.13.13.1 send UPDATE 192.12.12.0/24
+2017/12/08 23:39:37 BGP: 192.34.34.5 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 20, path 
+2017/12/08 23:39:37 BGP: 192.34.34.5 rcvd 192.10.10.0/24
+2017/12/08 23:39:37 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 23:39:37 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 23:39:38 BGP: 192.34.34.5 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 23:39:42 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 23:39:42 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24
+2017/12/08 23:39:47 BGP: 192.34.34.5 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 20, path 
+2017/12/08 23:39:47 BGP: 192.34.34.5 rcvd 192.10.10.0/24
+2017/12/08 23:39:47 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 23:39:47 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 23:39:48 BGP: 192.34.34.5 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 23:39:52 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/08 23:39:52 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24
+2017/12/08 23:39:57 BGP: 192.34.34.5 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 20, path 
+2017/12/08 23:39:57 BGP: 192.34.34.5 rcvd 192.10.10.0/24
+2017/12/08 23:39:57 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 23:39:57 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/08 23:39:58 BGP: 192.34.34.5 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/08 23:40:01 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24
+2017/12/08 23:40:02 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/09 00:08:46 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/09 00:08:46 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/09 00:08:46 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/09 00:08:46 BGP: 2001:1:0:3434::5 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/09 00:08:46 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/09 00:08:46 BGP: 192.34.34.5 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/09 00:08:46 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/09 00:08:46 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/09 00:08:46 BGP: 192.34.34.5 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/09 00:08:46 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/09 00:08:46 BGP: 192.34.34.5 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/09 00:08:46 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/09 00:08:46 BGP: 2001:1:0:3434::5 rcvd UPDATE about 2001:1:0:5050::/64 -- withdrawn
+2017/12/09 00:08:47 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:5050::/64 -- unreachable
+2017/12/09 00:08:47 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/09 00:08:47 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/09 00:08:47 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64 -- unreachable
+2017/12/09 00:08:47 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24 -- unreachable
+2017/12/09 00:08:47 BGP: 192.34.34.4 send UPDATE 192.50.50.0/24 -- unreachable
+2017/12/09 00:08:47 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:1212::/64 -- withdrawn
+2017/12/09 00:08:47 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/09 00:08:47 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/09 00:08:47 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/09 00:08:47 BGP: 192.34.34.4 rcvd UPDATE about 192.24.24.0/24 -- withdrawn
+2017/12/09 00:08:47 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::e04f:e8ff:fe98:ff9b), localpref 100, metric 1, path 65200
+2017/12/09 00:08:47 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/09 00:08:47 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64 -- unreachable
+2017/12/09 00:08:47 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/09 00:08:47 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/09 00:08:47 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/09 00:08:47 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/09 00:09:21 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/09 00:09:25 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/09 00:09:25 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/09 00:09:25 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::f4ef:3bff:fe37:3f5b), metric 1, path 65100
+2017/12/09 00:09:25 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/09 00:09:25 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::f4ef:3bff:fe37:3f5b), metric 1, path 65100
+2017/12/09 00:09:25 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/09 00:09:25 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::f4ef:3bff:fe37:3f5b), metric 1, path 65100
+2017/12/09 00:09:25 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/09 00:09:27 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/09 00:09:27 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/09 00:09:27 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/09 00:09:27 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/09 00:09:27 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::189c:6eff:fe19:61fc), localpref 100, metric 1, path 
+2017/12/09 00:09:27 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/09 00:09:27 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::189c:6eff:fe19:61fc), localpref 100, metric 1, path 
+2017/12/09 00:09:27 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/09 00:09:28 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/09 00:09:28 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/09 00:09:28 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 1, path 
+2017/12/09 00:09:28 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/09 00:09:28 BGP: 192.34.34.4 rcvd 192.34.34.0/24
+2017/12/09 00:09:30 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/09 00:09:30 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/09 00:09:30 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/09 00:09:30 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/09 00:09:30 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/09 00:09:30 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/09 00:09:30 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/09 00:09:32 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::189c:6eff:fe19:61fc), localpref 100, metric 1, path 65200
+2017/12/09 00:09:32 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/09 00:09:32 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::189c:6eff:fe19:61fc), localpref 100, metric 1, path 65200
+2017/12/09 00:09:32 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/09 00:09:33 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/09 00:09:33 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/09 00:09:33 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/09 00:09:33 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/09 00:09:33 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/09 00:09:55 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/09 00:09:55 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/09 00:09:55 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::f4ef:3bff:fe37:3f5b), path 65100 65200
+2017/12/09 00:09:55 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:2020::/64
+2017/12/09 00:09:55 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::f4ef:3bff:fe37:3f5b), path 65100 65200
+2017/12/09 00:09:55 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:2424::/64
+2017/12/09 00:10:00 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, path 65100 65200
+2017/12/09 00:10:00 BGP: 192.13.13.1 rcvd 192.24.24.0/24
+2017/12/09 00:10:00 BGP: 192.13.13.1 rcvd 192.20.20.0/24
+2017/12/09 00:10:03 BGP: 192.34.34.4 send UPDATE 192.20.20.0/24
+2017/12/09 00:10:03 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, path 65200 65100
+2017/12/09 00:10:03 BGP: 192.34.34.4 rcvd 192.10.10.0/24
+2017/12/09 00:10:21 BGP: 192.34.34.4 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/09 00:10:21 BGP: 192.34.34.4 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/09 00:10:29 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24
+2017/12/09 00:27:24 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/09 00:27:24 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/09 00:27:24 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/09 00:27:24 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/09 00:27:24 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/09 00:27:24 BGP: 192.13.13.1 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/09 00:27:24 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/09 00:27:24 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/09 00:27:24 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/09 00:27:24 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/09 00:27:24 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/09 00:27:24 BGP: 192.13.13.1 rcvd UPDATE about 192.24.24.0/24 -- withdrawn
+2017/12/09 00:27:24 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/09 00:27:24 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/09 00:27:24 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/09 00:27:24 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/09 00:27:25 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/09 00:27:25 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/09 00:27:25 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/09 00:27:37 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/09 00:27:41 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::a8f6:9ff:feba:e361), localpref 100, metric 1, path 
+2017/12/09 00:27:41 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/09 00:27:41 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::a8f6:9ff:feba:e361), localpref 100, metric 1, path 
+2017/12/09 00:27:41 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/09 00:27:41 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/09 00:27:41 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/09 00:27:45 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/09 00:27:45 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/09 00:27:45 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/09 00:27:45 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/09 00:27:45 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/09 00:27:45 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/09 00:27:45 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/09 00:27:45 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, path 65100 65200
+2017/12/09 00:27:45 BGP: 192.13.13.1 rcvd 192.20.20.0/24
+2017/12/09 00:27:45 BGP: 192.13.13.1 rcvd 192.24.24.0/24
+2017/12/09 00:27:45 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 1, path 
+2017/12/09 00:27:45 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/09 00:27:45 BGP: 192.34.34.4 rcvd 192.34.34.0/24
+2017/12/09 00:27:45 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/09 00:27:45 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/09 00:27:45 BGP: 192.34.34.4 send UPDATE 192.50.50.0/24
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::3c89:7dff:fe91:cf41), metric 1, path 65100
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::3c89:7dff:fe91:cf41), metric 1, path 65100
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::3c89:7dff:fe91:cf41), metric 1, path 65100
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::3c89:7dff:fe91:cf41), path 65100 65200
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:2020::/64
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::3c89:7dff:fe91:cf41), path 65100 65200
+2017/12/09 00:27:46 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:2424::/64
+2017/12/09 00:27:50 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/09 00:27:50 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/09 00:27:50 BGP: 192.34.34.4 send UPDATE 192.20.20.0/24
+2017/12/09 00:27:50 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, path 65200 65100
+2017/12/09 00:27:50 BGP: 192.34.34.4 rcvd 192.10.10.0/24
+2017/12/09 00:27:50 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/09 00:27:50 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/09 00:27:50 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::a8f6:9ff:feba:e361), localpref 100, path 65200 65100
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1010::/64
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::a8f6:9ff:feba:e361), localpref 100, metric 1, path 65200
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:2020::/64
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::a8f6:9ff:feba:e361), localpref 100, metric 1, path 65200
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/09 00:27:51 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/09 00:28:15 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/09 00:28:16 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/09 00:28:37 BGP: 192.34.34.4 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/09 00:28:37 BGP: 192.34.34.4 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/09 00:28:44 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24
+2017/12/09 00:56:27 BGP: 192.13.13.1 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/09 00:56:27 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/09 00:56:27 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24 -- unreachable
+2017/12/09 00:56:27 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64 -- unreachable
+2017/12/09 00:56:27 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/09 00:56:27 BGP: 2001:1:0:1313::1 rcvd UPDATE about 2001:1:0:2020::/64 -- withdrawn
+2017/12/09 00:56:27 BGP: 192.34.34.4 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/09 00:56:27 BGP: 192.13.13.1 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+2017/12/09 00:56:27 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/09 00:56:27 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/09 00:56:27 BGP: 192.13.13.1 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/09 00:56:27 BGP: 192.13.13.1 rcvd UPDATE about 192.24.24.0/24 -- withdrawn
+2017/12/09 00:56:27 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24 -- unreachable
+2017/12/09 00:56:27 BGP: 192.34.34.4 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/09 00:56:27 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24 -- unreachable
+2017/12/09 00:56:27 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64 -- unreachable
+2017/12/09 00:56:27 BGP: Notification sent to neighbor 192.34.34.4: configuration change
+2017/12/09 00:56:27 BGP: Notification sent to neighbor 2001:1:0:1313::1: configuration change
+2017/12/09 00:56:27 BGP: Notification sent to neighbor 2001:1:0:3434::4: configuration change
+2017/12/09 00:56:40 BGP: BGPd 0.99.22.4 starting: vty@2605, bgp@<all>:179
+2017/12/09 00:56:43 BGP: stream_read_try: read failed on fd 16: Connection reset by peer
+2017/12/09 00:56:43 BGP: 2001:1:0:3434::4 [Error] bgp_read_packet error: Connection reset by peer
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1313::/64
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:3434::/64
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:5050::/64
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::b418:62ff:fee5:2c01), localpref 100, metric 1, path 
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2424::/64
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:3434::4(fe80::b418:62ff:fee5:2c01), localpref 100, metric 1, path 
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:3434::/64
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin i, mp_nexthop 2001:1:0:3434::4(fe80::b418:62ff:fee5:2c01), localpref 100, metric 0, path 
+2017/12/09 00:56:44 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:5050::/64
+2017/12/09 00:56:45 BGP: 192.13.13.1 send UPDATE 192.13.13.0/24
+2017/12/09 00:56:45 BGP: 192.13.13.1 send UPDATE 192.34.34.0/24
+2017/12/09 00:56:45 BGP: 192.13.13.1 send UPDATE 192.50.50.0/24
+2017/12/09 00:56:45 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, metric 1, path 65100
+2017/12/09 00:56:45 BGP: 192.13.13.1 rcvd 192.10.10.0/24
+2017/12/09 00:56:45 BGP: 192.13.13.1 rcvd 192.13.13.0/24
+2017/12/09 00:56:45 BGP: 192.13.13.1 rcvd 192.12.12.0/24
+2017/12/09 00:56:45 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin ?, localpref 100, metric 1, path 
+2017/12/09 00:56:45 BGP: 192.34.34.4 rcvd 192.24.24.0/24
+2017/12/09 00:56:45 BGP: 192.34.34.4 rcvd 192.34.34.0/24
+2017/12/09 00:56:45 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.34.34.4, origin i, localpref 100, metric 0, path 
+2017/12/09 00:56:45 BGP: 192.34.34.4 rcvd 192.50.50.0/24
+2017/12/09 00:56:45 BGP: 192.34.34.4 send UPDATE 192.13.13.0/24
+2017/12/09 00:56:45 BGP: 192.34.34.4 send UPDATE 192.34.34.0/24
+2017/12/09 00:56:45 BGP: 192.34.34.4 send UPDATE 192.50.50.0/24
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:1313::/64
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2424::/64
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:3434::/64
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:5050::/64
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::cd9:42ff:fe13:f755), metric 1, path 65100
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1010::/64
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::cd9:42ff:fe13:f755), metric 1, path 65100
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1212::/64
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::cd9:42ff:fe13:f755), metric 1, path 65100
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:1313::/64
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::cd9:42ff:fe13:f755), path 65100 65200
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:2020::/64
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:1313::1(fe80::cd9:42ff:fe13:f755), path 65100 65200
+2017/12/09 00:56:49 BGP: 2001:1:0:1313::1 rcvd 2001:1:0:2424::/64
+2017/12/09 00:56:50 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, metric 1, path 65200
+2017/12/09 00:56:50 BGP: 192.34.34.4 rcvd 192.12.12.0/24
+2017/12/09 00:56:50 BGP: 192.34.34.4 rcvd 192.20.20.0/24
+2017/12/09 00:56:50 BGP: 192.34.34.4 send UPDATE 192.10.10.0/24
+2017/12/09 00:56:50 BGP: 192.34.34.4 send UPDATE 192.12.12.0/24
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1010::/64
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:1212::/64
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:2020::/64
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::b418:62ff:fee5:2c01), localpref 100, path 65200 65100
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1010::/64
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::b418:62ff:fee5:2c01), localpref 100, metric 1, path 65200
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:1212::/64
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 rcvd UPDATE w/ attr: , origin ?, mp_nexthop 2001:1:0:2424::2(fe80::b418:62ff:fee5:2c01), localpref 100, metric 1, path 65200
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 rcvd 2001:1:0:2020::/64
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 send UPDATE 2001:1:0:2020::/64 -- unreachable
+2017/12/09 00:56:54 BGP: 2001:1:0:3434::4 rcvd UPDATE about 2001:1:0:1010::/64 -- withdrawn
+2017/12/09 00:57:15 BGP: 192.13.13.1 send UPDATE 192.24.24.0/24
+2017/12/09 00:57:15 BGP: 192.13.13.1 rcvd UPDATE w/ attr: nexthop 192.13.13.1, origin ?, path 65100 65200
+2017/12/09 00:57:15 BGP: 192.13.13.1 rcvd 192.24.24.0/24
+2017/12/09 00:57:15 BGP: 192.13.13.1 rcvd 192.20.20.0/24
+2017/12/09 00:57:19 BGP: 2001:1:0:1313::1 send UPDATE 2001:1:0:2020::/64
+2017/12/09 00:57:20 BGP: 192.34.34.4 rcvd UPDATE w/ attr: nexthop 192.24.24.2, origin ?, localpref 100, path 65200 65100
+2017/12/09 00:57:20 BGP: 192.34.34.4 rcvd 192.10.10.0/24
+2017/12/09 00:57:20 BGP: 192.34.34.4 send UPDATE 192.20.20.0/24
+2017/12/09 00:57:40 BGP: 192.34.34.4 send UPDATE 192.20.20.0/24 -- unreachable
+2017/12/09 00:57:40 BGP: 192.34.34.4 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/09 00:57:44 BGP: 192.13.13.1 send UPDATE 192.20.20.0/24

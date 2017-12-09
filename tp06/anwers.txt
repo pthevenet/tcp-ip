@@ -41,3 +41,88 @@ in R2, to route to 192.10.10.0, the AS paths is 65345 65100, that is it does not
 as expected
 
 [Q5]
+First, it requires another process to run on all routers, requiring more expensive routers.
+Second, each speaker router in an AS have to maintain a TCP connection to all other speakers. 
+This is also expensive and less and less possible when the number of routers incease inside the AS.
+Anyhow, BGP is made for inter-AS routing, so it does not "feel" senseful to use it on each router.
+
+[Q6]
+On both r4 and r5, we have to update the files bgpd.conf, ospfd.conf and ospf6d.conf :
+bgpd.conf : change "redistribute connected" to "redistribute ospf"
+ospfd.conf :  add "redistribute bgp"
+ospf6d.conf : add "redistribute bgp"
+The first change allows the redistribution of routes from ospf into bgp, while the two lasts allows the redistribution of routes learned from bgp to ospf.
+
+[Q7]
+The line for subnet 192.20.20.0/24 in R1 :
+*> 192.20.20.0      192.13.13.3                            0 65345 65200 ?
+The line for subnet 192.10.10.0/24 in R@ :
+*> 192.10.10.0      192.24.24.4                            0 65345 65100 ?
+
+We can see that the entries are the same as in Q4.
+Therefore it is acceptable, considering that bgp between r1 and r2 is disabled, the routes have to go through AS 65345.
+
+[Q8] -
+Following the hint,
+We can see that R3 sent a route info to 192.50.50./24 to r4 by ibgp because r4 has this info in its routing table (from ibgp) :
+B   192.50.50.0/24 [200/20] via 192.34.34.5, r4-eth2, 00:20:16 (routing table)
+*>i192.50.50.0      192.34.34.5             20    100      0 ? (bgp table)
+However this is not the case in r3, it does not have two routes to this subnet.
+This shows that R3 got the information about the subnet by ospf, and as a bootstrap used this route and advertised it to r4.
+This means that to redistribute OSPF into BGP, quagga sets routes info in bgp database.
+
+We can see a difference in the routes in r3 to 192.24.24.0/24 compared to the routes in r4 to 192.13.13.0/24 :
+in R3 there is only one route learned from ospf
+in R4, there is also the route from ospf but also the route learned with ibgp from r3, saying that the next hop to 192.13.13.0/24 is 192.13.13.1 (not onlink).
+This way we can see the consequence of allowing bgp -> ospf redirection in r4.
+
+
+
+[Q9] -
+In R5, we can see routes to192.34.34.0/24 learned by ibgp (from r4), however on cisco routers only routes learned with ebgp are redistributed into ospf.
+This shows that quagga by default redistributes routes learned with ibgp into ospf database.
+
+[Q10]
+The routing entries for 192.10.10.0/24 in r4 :
+B   192.10.10.0/24 [200/1] via 192.13.13.1, 00:01:16
+O>* 192.10.10.0/24 [110/20] via 192.34.34.3, r4-eth2, 00:01:25
+
+There are 2. The chosen best route is the one with next hop 192.34.34.3 (second one), learned from ospf.
+As we can see, the first route has a higher metric [200/1] corresponding to the second one [110/20].
+OSPF routes are prefered over ibgp routes, by the administrative distance 200 (ibgp) vs 110 (ospf).
+This is to prefer ospf routes over ibgp routes that may need recursive lookup as it is in our case.
+
+[Q11]
+We cannot ping between all hosts, h5 and r5 are not reachable outside of their AS.
+Since we do not redistribute ospf into bgp, bgp does not know about subnet 192.50.50.0/24 at r3 and r4, that means that this subnet is not advertised to the other ASes.
+
+[Q12]
+In r3/bgpd.conf : added "redistribute static"
+In r3/zebra.conf : added lines :
+	ip route 192.50.50.0/24 r3-eth2
+	ipv6 route 2001:1:0:5050::/64 r3-eth2
+
+[Q13]
+Now subnet 192.50.50.0/24 is reachable as we can see with these routes :
+r1 :
+*  192.50.50.0      192.12.12.2                            0 65200 65345 ?
+*>              		    192.13.13.3              0             0 65345 ?
+r2 :
+*> 192.50.50.0      192.24.24.4                            0 65345 ?
+*                	       	      192.12.12.1                            0 65100 65345 ?
+
+[Q14]
+At R3, entries to subnet 192.50.50.0/24 :
+O   192.50.50.0/24 [110/20] via 192.34.34.5, r3-eth2, 00:10:32
+S>* 192.50.50.0/24 [1/0] is directly connected, r3-eth2
+There are two routes.
+The chosen route is the second one, the static route (S) because we can see its administrative distance is 1 compared to 110 for the first route by ospf.
+
+[Q15]
+Looking at the routing tables we can see that from each router each subnet is accessible.
+Testing with pingall validates the claim.
+
+In R1, the entries for 192.50.50.0/24 are :
+*  192.50.50.0      192.12.12.2                            0 65200 65345 i
+*>               		    192.13.13.3              0             0 65345 i
+As we can see, the second entry is chosen because the AS path is shorter (one less AS to go through).
