@@ -62,25 +62,29 @@ The line for subnet 192.10.10.0/24 in R@ :
 We can see that the entries are the same as in Q4.
 Therefore it is acceptable, considering that bgp between r1 and r2 is disabled, the routes have to go through AS 65345.
 
-[Q8] -
+[Q8]
+Of course redistributing OSPF into BGP injects routes learned from OSPF into BGP' s table.
 Following the hint,
-We can see that R3 sent a route info to 192.50.50./24 to r4 by ibgp because r4 has this info in its routing table (from ibgp) :
-B   192.50.50.0/24 [200/20] via 192.34.34.5, r4-eth2, 00:20:16 (routing table)
-*>i192.50.50.0      192.34.34.5             20    100      0 ? (bgp table)
-However this is not the case in r3, it does not have two routes to this subnet.
-This shows that R3 got the information about the subnet by ospf, and as a bootstrap used this route and advertised it to r4.
-This means that to redistribute OSPF into BGP, quagga sets routes info in bgp database.
+We see that R4 gets the route :
+*> 192.20.20.0      192.24.24.2              1             0 65200 ?
+from e-bgp.
+Then this route is sent to OSPF :
+B>* 192.20.20.0/24 [20/1] via 192.24.24.2, r4-eth1, 00:37:29
+In R3, OSPF sees this route :
+O>* 192.20.20.0/24 [110/20] via 192.34.34.4, r3-eth2, 00:36:43
+That looks like a correct OSPF route, except it is a route learned by bgp
+And when redistributing OSPF into BGP we see the route :
+*> 192.20.20.0      192.34.34.4             20         32768 ?
+Which is the chosen route.
 
-We can see a difference in the routes in r3 to 192.24.24.0/24 compared to the routes in r4 to 192.13.13.0/24 :
-in R3 there is only one route learned from ospf
-in R4, there is also the route from ospf but also the route learned with ibgp from r3, saying that the next hop to 192.13.13.0/24 is 192.13.13.1 (not onlink).
-This way we can see the consequence of allowing bgp -> ospf redirection in r4.
+This means that the redistribution of the routes learned from OSPF into BGP does not depend on the fact that this route was learned by BGP or not.
+This is an incorrect thing to do because BGP understands that 192.20.20.0/24 is local to this area.
 
+Therefore, when redistributing OSPF into BGP, quagga's implementation does not discriminate routes learned from BGP.
 
-
-[Q9] -
-In R5, we can see routes to192.34.34.0/24 learned by ibgp (from r4), however on cisco routers only routes learned with ebgp are redistributed into ospf.
-This shows that quagga by default redistributes routes learned with ibgp into ospf database.
+[Q9]
+Cisco routers, when injecting routes from OSPF into BGP, will drop routes learned by BGP, because it will create the problem described above.
+This is not the case for quagga.
 
 [Q10]
 The routing entries for 192.10.10.0/24 in r4 :
