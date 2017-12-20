@@ -47,7 +47,7 @@ This is also expensive and less and less possible when the number of routers inc
 Anyhow, BGP is made for inter-AS routing, so it does not "feel" senseful to use it on each router.
 
 [Q6]
-On both r4 and r5, we have to update the files bgpd.conf, ospfd.conf and ospf6d.conf :
+On both r4 and r3, we have to update the files bgpd.conf, ospfd.conf and ospf6d.conf :
 bgpd.conf : change "redistribute connected" to "redistribute ospf"
 ospfd.conf :  add "redistribute bgp"
 ospf6d.conf : add "redistribute bgp"
@@ -130,3 +130,58 @@ In R1, the entries for 192.50.50.0/24 are :
 *  192.50.50.0      192.12.12.2                            0 65200 65345 i
 *>               		    192.13.13.3              0             0 65345 i
 As we can see, the second entry is chosen because the AS path is shorter (one less AS to go through).
+
+[Q16]
+We can see this messages : 
+2017/12/20 13:33:03 BGP: 192.34.34.3 rcvd UPDATE about 192.10.10.0/24 -- withdrawn
+2017/12/20 13:33:03 BGP: 192.34.34.3 rcvd UPDATE about 192.12.12.0/24 -- withdrawn
+2017/12/20 13:33:03 BGP: 192.34.34.3 rcvd UPDATE about 192.13.13.0/24 -- withdrawn
+2017/12/20 13:33:03 BGP: 192.34.34.3 rcvd UPDATE about 192.20.20.0/24 -- withdrawn
+This means that BGP on r3 announces that subnets 192.10.10.0/24, 192.12.12.0/24, 192.13.13.0/24 are not reachable for r3 anymore.
+
+[Q17]
+At r3 we see the routes :
+B   192.10.10.0/24 [200/0] via 192.24.24.2, 00:00:19
+O>* 192.10.10.0/24 [110/20] via 192.34.34.4, r3-eth2, 00:00:20
+
+on bgp routes :
+*>i192.10.10.0      192.24.24.2                   100      0 65200 65100 ?
+The bgp route goes to r2 by AS 65200 then to AS 65100 because it cannot go directly to AS 65100 now.
+
+Which means that r3 routes packets with destination 192.10.10.0/24 to r4.
+
+[Q18]
+The routes to 192.50.50/24 :
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*  192.50.50.0      192.12.12.2                            0 65200 65345 i
+*>                  192.13.13.3              0             0 65345 i
+
+There are two routes to this network.
+The chosen one is to next hop r3 (second one), because of the shortest AS-PATH (local pref is 0 anyway).
+
+From R1 we cannot ping to this subnet because r3 is not connected to the subnet in the AS.
+This is because R3 advertises the subnet192.50.50/24 because of the configuration (network ...).
+
+[Q19]
+In BGP table, it only lacks an entry for 192.34.34.0/24.
+Because it does redistribute from ospf but r3-eth2 is shut down, and we do not force it as for 192.50.50.0/24 with "network ...".
+Moreover redistribution of OSPF into BGP is disabled, and since 192.34.34.0/24 because r1 does not send ebgp routes to r3 for this subnet because it would create a loop.
+It has an entry for 192.50.50.0 because we force it by network ... cmd
+
+[Q20]
+Only allow out to routes with 65345 as AS-PATH. (forbid sending routes with more than this AS-PAth)
+In r3 :
+neighbor 192.13.13.2 filter-list R1-filter out
+neighbor 2001:1:0:1313::1 filter-list R1-filter6 out
+ip as-path access-list R1-filter permit 65345
+ip as-path access-list R1-filter6 permit 65345
+
+In r4 :
+neighbor 192.24.24.2 filter-list R2-filter out
+neighbor 2001:1:0:2424::1 filter-list R2-filter6 out
+ip as-path access-list R2-filter permit 65345
+ip as-path ipv6 as-path access-list R2-filter6 permit 65345
+
+[Q21]
+
