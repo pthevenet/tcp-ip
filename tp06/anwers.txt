@@ -170,18 +170,49 @@ Moreover redistribution of OSPF into BGP is disabled, and since 192.34.34.0/24 b
 It has an entry for 192.50.50.0 because we force it by network ... cmd
 
 [Q20]
-Only allow out to routes with 65345 as AS-PATH. (forbid sending routes with more than this AS-PAth)
 In r3 :
-neighbor 192.13.13.2 filter-list R1-filter out
-neighbor 2001:1:0:1313::1 filter-list R1-filter6 out
-ip as-path access-list R1-filter permit 65345
-ip as-path access-list R1-filter6 permit 65345
-
+neighbor 192.13.13.11 route-map localonly out
 In r4 :
-neighbor 192.24.24.2 filter-list R2-filter out
-neighbor 2001:1:0:2424::1 filter-list R2-filter6 out
-ip as-path access-list R2-filter permit 65345
-ip as-path ipv6 as-path access-list R2-filter6 permit 65345
+neighbor 192.24.24.2 route-map localonly out
 
 [Q21]
+In r1 :
+# route maps
+neighbor 192.12.12.2 route-map rm in
+neighbor 2001:1:0:1212::2 route-map rm6 in
+
+# access lists
+access-list rm permit 192.50.50.0/24
+ipv6 access-list rm6 permit 2001:1:0:5050::/64
+
+# define actions : increase weight
+route-map rm permit 10
+match ip address rm
+set weight 201
+
+route-map rm6 permit 10
+match ip address rm6
+set weight 201
+
+Otherwise default, allow
+
+[Q22]
+By the rules of BGP, r1 should choose the shortest AS path to subnet 192.50.50./24, therefore if in R1 the selected route is not this one, but the one that goes to AS200, our solution works.
+
+[Q23]
+r2 can decide to block packets from r1 to the subnets, by dropping routes to 192.50.50./24
+neighbor 192.12.12.1 distribute-list r1 out
+neighbor 2001:1:0:1212:1 distribute-list r1-6 out
+
+access-list r1 deny 192.50.50.0/24
+ipv6 access-list r1-6 deny 2001:1:0:5050::/64
+
+Otherwise default allow :
+access-list r1 permit any
+access-list r1-6 permit any
+
+This way, r1 does not receive advertisements for these subnets only
+
+[Q24]
+From r1, 192.50.50.0/24 should not be accessible by 65200 anymore.
 
